@@ -1,2 +1,4 @@
-package dal;public class CategoryDAO {
+package dal;
+
+public class CategoryDAO {
 }

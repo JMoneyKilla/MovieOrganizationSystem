@@ -1,2 +1,4 @@
-package bll;public class CategoryManager {
+package bll;
+
+public class CategoryManager {
 }
