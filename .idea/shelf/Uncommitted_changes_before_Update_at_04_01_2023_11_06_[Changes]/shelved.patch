@@ -1,0 +1,285 @@
+Index: .idea/uiDesigner.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/uiDesigner.xml b/.idea/uiDesigner.xml
+new file mode 100644
+--- /dev/null	(date 1672826673757)
++++ b/.idea/uiDesigner.xml	(date 1672826673757)
+@@ -0,0 +1,124 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Palette2">
++    <group name="Swing">
++      <item class="com.intellij.uiDesigner.HSpacer" tooltip-text="Horizontal Spacer" icon="/com/intellij/uiDesigner/icons/hspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="1" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="com.intellij.uiDesigner.VSpacer" tooltip-text="Vertical Spacer" icon="/com/intellij/uiDesigner/icons/vspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="1" anchor="0" fill="2" />
++      </item>
++      <item class="javax.swing.JPanel" icon="/com/intellij/uiDesigner/icons/panel.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JScrollPane" icon="/com/intellij/uiDesigner/icons/scrollPane.svg" removable="false" auto-create-binding="false" can-attach-label="true">
++        <default-constraints vsize-policy="7" hsize-policy="7" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JButton" icon="/com/intellij/uiDesigner/icons/button.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="0" fill="1" />
++        <initial-values>
++          <property name="text" value="Button" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JRadioButton" icon="/com/intellij/uiDesigner/icons/radioButton.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="RadioButton" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JCheckBox" icon="/com/intellij/uiDesigner/icons/checkBox.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="CheckBox" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JLabel" icon="/com/intellij/uiDesigner/icons/label.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="Label" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JTextField" icon="/com/intellij/uiDesigner/icons/textField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JPasswordField" icon="/com/intellij/uiDesigner/icons/passwordField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JFormattedTextField" icon="/com/intellij/uiDesigner/icons/formattedTextField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextArea" icon="/com/intellij/uiDesigner/icons/textArea.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextPane" icon="/com/intellij/uiDesigner/icons/textPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JEditorPane" icon="/com/intellij/uiDesigner/icons/editorPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JComboBox" icon="/com/intellij/uiDesigner/icons/comboBox.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="2" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JTable" icon="/com/intellij/uiDesigner/icons/table.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JList" icon="/com/intellij/uiDesigner/icons/list.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="2" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTree" icon="/com/intellij/uiDesigner/icons/tree.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTabbedPane" icon="/com/intellij/uiDesigner/icons/tabbedPane.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSplitPane" icon="/com/intellij/uiDesigner/icons/splitPane.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSpinner" icon="/com/intellij/uiDesigner/icons/spinner.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSlider" icon="/com/intellij/uiDesigner/icons/slider.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSeparator" icon="/com/intellij/uiDesigner/icons/separator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JProgressBar" icon="/com/intellij/uiDesigner/icons/progressbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JToolBar" icon="/com/intellij/uiDesigner/icons/toolbar.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1">
++          <preferred-size width="-1" height="20" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JToolBar$Separator" icon="/com/intellij/uiDesigner/icons/toolbarSeparator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JScrollBar" icon="/com/intellij/uiDesigner/icons/scrollbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="0" anchor="0" fill="2" />
++      </item>
++    </group>
++  </component>
++</project>
+\ No newline at end of file
+Index: src/gui/view/MovieMenu.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/gui/view/MovieMenu.fxml b/src/gui/view/MovieMenu.fxml
+new file mode 100644
+--- /dev/null	(date 1672826673760)
++++ b/src/gui/view/MovieMenu.fxml	(date 1672826673760)
+@@ -0,0 +1,110 @@
++<?xml version="1.0" encoding="UTF-8"?>
++
++<!--
++  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
++  All rights reserved. Use is subject to license terms.
++
++  This file is available and licensed under the following license:
++
++  Redistribution and use in source and binary forms, with or without
++  modification, are permitted provided that the following conditions
++  are met:
++
++  - Redistributions of source code must retain the above copyright
++    notice, this list of conditions and the following disclaimer.
++  - Redistributions in binary form must reproduce the above copyright
++    notice, this list of conditions and the following disclaimer in
++    the documentation and/or other materials provided with the distribution.
++  - Neither the name of Oracle Corporation nor the names of its
++    contributors may be used to endorse or promote products derived
++    from this software without specific prior written permission.
++
++  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
++  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
++  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
++  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
++  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
++  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
++  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
++  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
++  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
++  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
++  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
++-->
++
++<?import javafx.scene.control.Button?>
++<?import javafx.scene.control.ListView?>
++<?import javafx.scene.control.Menu?>
++<?import javafx.scene.control.MenuBar?>
++<?import javafx.scene.control.MenuItem?>
++<?import javafx.scene.control.SeparatorMenuItem?>
++<?import javafx.scene.control.TableColumn?>
++<?import javafx.scene.control.TableView?>
++<?import javafx.scene.control.TextField?>
++<?import javafx.scene.layout.AnchorPane?>
++<?import javafx.scene.layout.VBox?>
++<?import javafx.scene.text.Text?>
++
++<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.BaseController">
++  <children>
++    <MenuBar VBox.vgrow="NEVER">
++      <menus>
++        <Menu mnemonicParsing="false" text="File">
++          <items>
++            <MenuItem mnemonicParsing="false" text="New" />
++            <MenuItem mnemonicParsing="false" text="Open…" />
++            <Menu mnemonicParsing="false" text="Open Recent" />
++            <SeparatorMenuItem mnemonicParsing="false" />
++            <MenuItem mnemonicParsing="false" text="Close" />
++            <MenuItem mnemonicParsing="false" text="Save" />
++            <MenuItem mnemonicParsing="false" text="Save As…" />
++            <MenuItem mnemonicParsing="false" text="Revert" />
++            <SeparatorMenuItem mnemonicParsing="false" />
++            <MenuItem mnemonicParsing="false" text="Preferences…" />
++            <SeparatorMenuItem mnemonicParsing="false" />
++            <MenuItem mnemonicParsing="false" text="Quit" />
++          </items>
++        </Menu>
++        <Menu mnemonicParsing="false" text="Edit">
++          <items>
++            <MenuItem mnemonicParsing="false" text="Undo" />
++            <MenuItem mnemonicParsing="false" text="Redo" />
++            <SeparatorMenuItem mnemonicParsing="false" />
++            <MenuItem mnemonicParsing="false" text="Cut" />
++            <MenuItem mnemonicParsing="false" text="Copy" />
++            <MenuItem mnemonicParsing="false" text="Paste" />
++            <MenuItem mnemonicParsing="false" text="Delete" />
++            <SeparatorMenuItem mnemonicParsing="false" />
++            <MenuItem mnemonicParsing="false" text="Select All" />
++            <MenuItem mnemonicParsing="false" text="Unselect All" />
++          </items>
++        </Menu>
++        <Menu mnemonicParsing="false" text="Help">
++          <items>
++            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
++          </items>
++        </Menu>
++      </menus>
++    </MenuBar>
++    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
++      <children>
++            <Button layoutX="304.0" layoutY="316.0" mnemonicParsing="false" onAction="#clickAddMovie" text="Add movie" />
++            <ListView layoutX="30.0" layoutY="51.0" prefHeight="259.0" prefWidth="254.0" />
++            <Button layoutX="385.0" layoutY="316.0" mnemonicParsing="false" onAction="#clickDeleteMovie" text="Delete movie" />
++            <Button layoutX="478.0" layoutY="316.0" mnemonicParsing="false" onAction="#clickEditMovie" text="Edit movie" />
++            <Button layoutX="30.0" layoutY="316.0" mnemonicParsing="false" onAction="#clickAddCategory" text="Add category" />
++            <Button layoutX="123.0" layoutY="316.0" mnemonicParsing="false" onAction="#clickDeleteCategory" text="Delete category" />
++            <Text layoutX="30.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categories" />
++            <Text layoutX="304.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Movies" />
++            <TextField layoutX="399.0" layoutY="18.0" prefHeight="25.0" prefWidth="203.0" promptText="search movies" />
++            <TableView layoutX="304.0" layoutY="51.0" prefHeight="259.0" prefWidth="308.0">
++              <columns>
++                <TableColumn prefWidth="170.66668701171875" text="Title" />
++                <TableColumn prefWidth="53.33331298828125" text="Date" />
++                  <TableColumn prefWidth="82.0" text="Category" />
++              </columns>
++            </TableView>
++      </children>
++    </AnchorPane>
++  </children>
++</VBox>
+Index: src/gui/controller/BaseController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/gui/controller/BaseController.java b/src/gui/controller/BaseController.java
+new file mode 100644
+--- /dev/null	(date 1672826673759)
++++ b/src/gui/controller/BaseController.java	(date 1672826673759)
+@@ -0,0 +1,20 @@
++package gui.controller;
++
++import javafx.event.ActionEvent;
++
++public class BaseController {
++    public void clickAddMovie(ActionEvent actionEvent) {
++    }
++
++    public void clickDeleteMovie(ActionEvent actionEvent) {
++    }
++
++    public void clickEditMovie(ActionEvent actionEvent) {
++    }
++
++    public void clickAddCategory(ActionEvent actionEvent) {
++    }
++
++    public void clickDeleteCategory(ActionEvent actionEvent) {
++    }
++}
