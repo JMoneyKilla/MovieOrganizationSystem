@@ -13,9 +13,9 @@ public class DBConnection {
     public Connection getConnection() {
         SQLServerDataSource ds;
         ds = new SQLServerDataSource();
-        ds.setDatabaseName("CSe22B_");
-        ds.setUser("CSe22B_");
-        ds.setPassword("CSe22B_");
+        ds.setDatabaseName("CSe22B_15_mdb");
+        ds.setUser("CSe22B_15");
+        ds.setPassword("CSe22B_15");
         ds.setServerName("10.176.111.31");
         ds.setPortNumber(1433);
         ds.setTrustServerCertificate(true);
