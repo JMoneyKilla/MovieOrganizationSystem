@@ -1,2 +1,4 @@
-package bll;public class MovieManager {
+package bll;
+
+public class MovieManager {
 }

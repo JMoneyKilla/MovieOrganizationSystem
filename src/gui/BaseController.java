@@ -1,2 +1,4 @@
-package gui;public class BaseController {
+package gui;
+
+public class BaseController {
 }

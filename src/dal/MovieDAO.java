@@ -1,2 +1,4 @@
-package dal;public class MovieDAO {
+package dal;
+
+public class MovieDAO {
 }
