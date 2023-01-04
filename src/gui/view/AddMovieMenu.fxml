@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="242.0" prefWidth="412.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.AddMovieController">
+   <children>
+      <TextField fx:id="txtTitle" layoutX="81.0" layoutY="37.0" />
+      <TextField fx:id="txtFile" layoutX="81.0" layoutY="141.0" prefHeight="25.0" prefWidth="235.0" />
+      <Button layoutX="324.0" layoutY="141.0" mnemonicParsing="false" onAction="#clickChoose" text="Choose..." />
+      <TextField fx:id="txtDate" layoutX="81.0" layoutY="69.0" prefHeight="25.0" prefWidth="54.0" />
+      <Text layoutX="21.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" />
+      <Text layoutX="20.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" />
+      <Text layoutX="20.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Category" />
+      <ChoiceBox fx:id="categoryChoiceBox" layoutX="81.0" layoutY="104.0" prefHeight="25.0" prefWidth="91.0" />
+      <Text layoutX="23.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="File" />
+      <Button layoutX="283.0" layoutY="194.0" mnemonicParsing="false" onAction="#clickSave" text="Save" />
+      <Button layoutX="336.0" layoutY="194.0" mnemonicParsing="false" onAction="#clickCancel" text="Cancel" />
+   </children>
+</AnchorPane>
