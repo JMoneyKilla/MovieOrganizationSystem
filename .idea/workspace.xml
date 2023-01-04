@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-<<<<<<< HEAD
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
-  <component name="ChangeListManager">
-    <list default="true" id="278fb7f0-31b4-4555-ae17-e4d37f5d6acf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/be/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/Movie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/CategoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/CategoryManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/MovieManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/MovieManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dal/CategoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/CategoryDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dal/MovieDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/MovieDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/BaseController.java" afterDir="false" />
-    </list>
-=======
   <component name="ChangeListManager">
     <list default="true" id="45fa53d1-c094-4a63-8814-f813769cc0e7" name="Changes" comment="added fxml and on action events in basecontroller" />
->>>>>>> d7a2579f6123e9da90d247ef2dd671a5dbc4054b
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,11 +10,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-<<<<<<< HEAD
-        <option value="Class" />
-=======
         <option value="FxmlFile" />
->>>>>>> d7a2579f6123e9da90d247ef2dd671a5dbc4054b
       </list>
     </option>
   </component>
@@ -40,14 +20,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-<<<<<<< HEAD
-  <component name="ProjectId" id="2Jq0lezbR4rFztrivllZjy2FTm9" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
-=======
   <component name="ProjectId" id="2Jr7XhQeIOcAU0Z0C5k63fHBiXA" />
->>>>>>> d7a2579f6123e9da90d247ef2dd671a5dbc4054b
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -56,35 +29,6 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-<<<<<<< HEAD
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.Mappings",
-    "vue.rearranger.settings.migration": "true"
-  }
-}]]></component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="278fb7f0-31b4-4555-ae17-e4d37f5d6acf" name="Changes" comment="" />
-      <created>1672790461009</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1672790461009</updated>
-      <workItem from="1672790462234" duration="503000" />
-      <workItem from="1672791018610" duration="150000" />
-      <workItem from="1672823567616" duration="1926000" />
-    </task>
-    <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-=======
     "SHARE_PROJECT_CONFIGURATION_FILES": "true"
   }
 }]]></component>
@@ -126,6 +70,5 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added fxml and on action events in basecontroller" />
     <option name="LAST_COMMIT_MESSAGE" value="added fxml and on action events in basecontroller" />
->>>>>>> d7a2579f6123e9da90d247ef2dd671a5dbc4054b
   </component>
 </project>
