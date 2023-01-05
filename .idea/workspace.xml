@@ -4,14 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45fa53d1-c094-4a63-8814-f813769cc0e7" name="Changes" comment="pushed fxml file :D">
-      <change afterPath="$PROJECT_DIR$/src/gui/view/CategoryMenu.fxml" afterDir="false" />
+    <list default="true" id="45fa53d1-c094-4a63-8814-f813769cc0e7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/MovieOrganizationSystem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/model/CategoryModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/CategoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/CategoryManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dal/CategoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/CategoryDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/BaseController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/controller/AddMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/AddMovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/BaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/model/MovieModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/model/MovieModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/view/AddMovieMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/view/AddMovieMenu.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/view/MovieMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/view/MovieMenu.fxml" afterDir="false" />
-    </list>
-    <list default="true" id="bed6b1d9-f0e3-42e9-9911-5918311c9099" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dal/MovieDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/MovieDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +63,9 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\nhi_t\Documents\GitHub\MovieOrganizationSystem\src\gui\view" />
     </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="gui.controller" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -83,7 +93,21 @@
       <option name="project" value="LOCAL" />
       <updated>1672826219438</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added more fxml files and controllers">
+      <created>1672835067980</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1672835067980</updated>
+    </task>
+    <task id="LOCAL-00004" summary="pushed again">
+      <created>1672835105293</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1672835105293</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -103,6 +127,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added fxml and on action events in basecontroller" />
     <MESSAGE value="pushed fxml file :D" />
-    <option name="LAST_COMMIT_MESSAGE" value="pushed fxml file :D" />
+    <MESSAGE value="added more fxml files and controllers" />
+    <MESSAGE value="pushed again" />
+    <option name="LAST_COMMIT_MESSAGE" value="pushed again" />
   </component>
 </project>

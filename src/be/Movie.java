@@ -16,6 +16,12 @@ public class Movie {
         setAbsolutePath(absolutePath);
         setLastViewed(lastViewed);
     }
+
+    public Movie(String name, String absolutePath) {
+        setName(name);
+        setAbsolutePath(absolutePath);
+    }
+
     public Movie(){
 
     }
