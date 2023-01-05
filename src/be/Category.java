@@ -1,9 +1,5 @@
 package be;
 
-import java.time.LocalDate;
-
-import static java.time.temporal.TemporalQueries.localDate;
-
 public class Category {
     private int id;
     private String name;
@@ -21,11 +17,16 @@ public class Category {
         this.id = id;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    @Override
+    public String toString() {
+        return getName();
     }
 }
