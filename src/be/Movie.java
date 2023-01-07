@@ -5,16 +5,18 @@ import javafx.beans.property.*;
 public class Movie {
     private IntegerProperty id = new SimpleIntegerProperty();
     private StringProperty name = new SimpleStringProperty();
-    private DoubleProperty rating = new SimpleDoubleProperty();
+    private StringProperty rating = new SimpleStringProperty();
     private StringProperty absolutePath = new SimpleStringProperty();
     private StringProperty lastViewed = new SimpleStringProperty();
+    private StringProperty imdbRating = new SimpleStringProperty();
 
-    public Movie (int id, String name, double rating, String absolutePath, String lastViewed) {
+    public Movie (int id, String name, String rating, String absolutePath, String lastViewed, String imdbRating) {
         setId(id);
         setName(name);
         setRating(rating);
         setAbsolutePath(absolutePath);
         setLastViewed(lastViewed);
+        setImdbRating(imdbRating);
     }
 
     public Movie(String name, String absolutePath) {
@@ -50,15 +52,29 @@ public class Movie {
         this.name.set(name);
     }
 
-    public double getRating() {
+    public String getRating() {
         return rating.get();
     }
 
-    public DoubleProperty ratingProperty() {
+    public String getImdbRating() {
+        return imdbRating.get();
+    }
+
+    public StringProperty imdbRatingProperty()
+    {
+        return imdbRating;
+    }
+
+    public void setImdbRating(String imdbRating) {
+        this.imdbRating.set(imdbRating);
+    }
+
+
+    public StringProperty ratingProperty() {
         return rating;
     }
 
-    public void setRating(double rating) {
+    public void setRating(String rating) {
         this.rating.set(rating);
     }
 
@@ -88,6 +104,6 @@ public class Movie {
 
     @Override
     public String toString() {
-        return id +" "+ name +" "+ rating + " " + absolutePath +" "+ lastViewed;
+        return id +" "+ name +" "+ rating + " " + absolutePath +" "+ lastViewed+" "+imdbRating;
     }
 }

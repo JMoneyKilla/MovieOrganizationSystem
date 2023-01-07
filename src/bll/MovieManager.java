@@ -1,5 +1,11 @@
 package bll;
 
+import be.Movie;
+import dal.MovieDAO;
+
+import java.sql.SQLException;
+import java.util.List;
+
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -8,6 +14,24 @@ import org.jsoup.nodes.Element;
 import java.io.IOException;
 
 public class MovieManager {
+
+    MovieDAO movieDAO = new MovieDAO();
+    public List<Movie> getAllMovies() {
+        try {
+            return movieDAO.getAllMovies();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    public void updateRating(Movie selectedMovie) {
+        try {
+            movieDAO.updateRating(selectedMovie);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     /**
      * Scrapes IMDB webpage, searches for movieTitle and gets movie id from first result of webpage.

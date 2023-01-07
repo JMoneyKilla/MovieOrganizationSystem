@@ -1,13 +1,11 @@
 package dal;
 
 import be.Movie;
-import be.Movie;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,16 +23,17 @@ public class MovieDAO {
         Movie movie;
         List<Movie> retrievedMovies = new ArrayList<>();
         try(Connection connection = dbConnection.getConnection()){
-            String sql ="SELECT id, name, rating, absolute_path, last_viewed FROM Movie";
+            String sql ="SELECT id, movie_title, user_rating, absolute_path, last_viewed, imdb_rating FROM Movie";
             preparedStatement = connection.prepareStatement(sql);
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()){
                 int id = rs.getInt("id");
-                String name = rs.getString("name");
-                Double rating = rs.getDouble("rating");
+                String name = rs.getString("movie_title");
+                String rating = rs.getString("user_rating");
                 String absolutePath = rs.getString("absolute_path");
                 String lastViewed = rs.getString("last_viewed");
-                movie = new Movie(id, name, rating, absolutePath, lastViewed);
+                String imdbRating = rs.getString("imdb_rating");
+                movie = new Movie(id, name, rating, absolutePath, lastViewed, imdbRating);
                 retrievedMovies.add(movie);
             }
         }
@@ -79,14 +78,15 @@ public class MovieDAO {
      * @param lastViewed
      * @throws SQLException
      */
-    public void addMovie(String name, double rating, String absolutePath, String lastViewed) throws SQLException {
+    public void addMovie(String name, String rating, String absolutePath, String lastViewed, String imdbRating) throws SQLException {
         try(Connection connection = dbConnection.getConnection()){
-            String sql = "INSERT INTO Movie(name, rating, absolute_path, last_viewed) VALUES(?,?,?,?)";
+            String sql = "INSERT INTO Movie(movie_title, user_rating, absolute_path, last_viewed, imdb_rating) VALUES(?,?,?,?,?)";
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, name);
-            preparedStatement.setDouble(2, rating);
+            preparedStatement.setString(2, rating);
             preparedStatement.setString(3, absolutePath);
             preparedStatement.setString(4, lastViewed);
+            preparedStatement.setString(5, imdbRating);
             preparedStatement.execute();
         }
     }
@@ -100,15 +100,29 @@ public class MovieDAO {
      * @param lastViewed
      * @throws SQLException
      */
-    public void updateMovie(int id, String name, double rating, String absolutePath, String lastViewed) throws SQLException {
+    public void updateMovie(int id, String name, String rating, String absolutePath, String lastViewed, String imdbRating) throws SQLException {
         try(Connection connection = dbConnection.getConnection()){
-            String sql = "UPDATE Movie SET name = ?, rating = ? absolute_path = ? last_viewed = ? WHERE id = ?";
+            String sql = "UPDATE Movie SET movie_title = ?, user_rating = ? absolute_path = ? last_viewed = ? imdb_rating = ? WHERE id = ?";
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, name);
-            preparedStatement.setDouble(2, rating);
+            preparedStatement.setString(2, rating);
             preparedStatement.setString(3, absolutePath);
             preparedStatement.setString(4, lastViewed);
             preparedStatement.setInt(5, id);
+            preparedStatement.setString(5, imdbRating);
+            preparedStatement.execute();
+        }
+    }
+
+    public void updateRating(Movie movie) throws SQLException {
+        String rating = movie.getRating();
+        int id = movie.getId();
+
+        try(Connection connection = dbConnection.getConnection()){
+            String sql = "UPDATE Movie SET user_rating = ? WHERE id = ? ;";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, rating);
+            preparedStatement.setInt(2, id);
             preparedStatement.execute();
         }
     }

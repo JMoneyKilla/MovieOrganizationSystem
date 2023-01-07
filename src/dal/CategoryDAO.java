@@ -2,7 +2,6 @@ package dal;
 
 import be.Category;
 import be.Movie;
-import com.sun.net.httpserver.Authenticator;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -128,10 +127,11 @@ public class CategoryDAO {
             while(rs.next()){
                 int id = rs.getInt("movie_id");
                 String name = rs.getString("movie_title");
-                double rating = rs.getDouble("rating");
+                String rating = rs.getString("rating");
                 String absolutePath = rs.getString("absolute_path");
                 String lastViewed = rs.getString("last_viewed");
-                movie = new Movie(id, name, rating, absolutePath, lastViewed);
+                String imdbRating = rs.getString("last_viewed");
+                movie = new Movie(id, name, rating, absolutePath, lastViewed, imdbRating);
                 moviesByCategory.add(movie);
             }
         }
