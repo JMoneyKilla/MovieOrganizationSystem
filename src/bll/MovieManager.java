@@ -35,7 +35,9 @@ public class MovieManager {
         // Get the movie page
         Document document = Jsoup.connect("https://www.imdb.com/title/" + movieId).get();
 
-        // Get the movie rating
+        // Converts the HTML of the website into a long string, then we seargh the string for "<span class=\"sc-7ab21ed2-1 eUYAaq\">"
+        // Which is the element that has the rating.
+        // Then make a substring of the that starts 35 chars after the start of <span class=...  and 3 chars after this to find the rating.
         String movieBody = document.body().toString();
         int ratingLocation = movieBody.indexOf("<span class=\"sc-7ab21ed2-1 eUYAaq\">");
         int ratingLocationStart = ratingLocation + 35;
