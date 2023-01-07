@@ -13,12 +13,12 @@ public class MovieManager {
      * Scrapes IMDB webpage, searches for movieTitle and gets movie id from first result of webpage.
      * Goes to first results webpage using the movie id and makes a string out of the html text
      * Searches for where the rating is in html text and makes a substring of just the rating numbers.
-     * Parses string to double.
+     * saves the IMDB rating as a string
      * @param movieTitle
-     * @return double that is rating of movie
+     * @return IMDB rating as String
      * @throws IOException
      */
-    public double getImdbRating(String movieTitle) throws IOException {
+    public String getImdbRating(String movieTitle) throws IOException {
 
         // Search for the movie on IMDb
         String url = "https://www.imdb.com/find?q=" + movieTitle;
@@ -42,9 +42,9 @@ public class MovieManager {
         int ratingLocation = movieBody.indexOf("<span class=\"sc-7ab21ed2-1 eUYAaq\">");
         int ratingLocationStart = ratingLocation + 35;
         int ratingLocationEnd = ratingLocationStart + 3;
-        String location = movieBody.substring(ratingLocationStart, ratingLocationEnd);
+        String rating = movieBody.substring(ratingLocationStart, ratingLocationEnd);
 
 
-        return Double.parseDouble(location);
+        return rating;
     }
 }
