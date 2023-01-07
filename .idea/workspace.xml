@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5548eac-cf9e-401b-b2aa-33d8d2df4b7b" name="Changes" comment="pushed fxml file :D">
+    <list default="true" id="45fa53d1-c094-4a63-8814-f813769cc0e7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MovieOrganizationSystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MovieOrganizationSystem.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bll/MovieManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/MovieManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dal/CategoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/CategoryDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dal/MovieDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/MovieDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/BaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/model/MovieModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/model/MovieModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/view/MovieMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/view/MovieMenu.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,26 +36,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\nhi_t\Documents\GitHub\MovieOrganizationSystem\src\gui\view" />
@@ -69,10 +64,30 @@
       <recent name="gui.controller" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="MovieManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bll.MovieManager" />
+      <module name="MovieOrganizationSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bll.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MovieManager" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="bed6b1d9-f0e3-42e9-9911-5918311c9099" name="Changes" comment="" />
+      <changelist id="45fa53d1-c094-4a63-8814-f813769cc0e7" name="Changes" comment="" />
       <created>1672824399332</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -80,6 +95,8 @@
       <workItem from="1672879062307" duration="33000" />
       <workItem from="1672879108488" duration="1397000" />
       <workItem from="1672909880457" duration="306000" />
+      <workItem from="1673096028502" duration="261000" />
+      <workItem from="1673108485432" duration="919000" />
     </task>
     <task id="LOCAL-00001" summary="added fxml and on action events in basecontroller">
       <created>1672825929830</created>
