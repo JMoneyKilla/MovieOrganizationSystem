@@ -11,7 +11,10 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class MovieManager {
 
@@ -70,5 +73,16 @@ public class MovieManager {
 
 
         return rating;
+    }
+    private String moveFile(String inputPath) {
+        File f = new File(inputPath);
+        String movieName = f.getName();
+        String outputPath = ("Movie/" + movieName);
+        try {
+            Files.move(Path.of(inputPath), Path.of(outputPath));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return outputPath;
     }
 }
