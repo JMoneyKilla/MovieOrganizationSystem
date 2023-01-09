@@ -25,9 +25,14 @@ public class MovieModel {
         return movies;
     }
     public void addMovie(String title, String path) {
+        bll.addMovie(title,path);
     }
 
     public void updateRating(Movie selectedMovie) {
         bll.updateRating(selectedMovie);
+    }
+    public void removeMovie(Movie selectedMovie){
+        movies.remove(selectedMovie);
+        bll.removeMovie(selectedMovie);
     }
 }

@@ -30,6 +30,7 @@ public class BaseController implements Initializable{
 
     MovieModel mm = new MovieModel();
     CategoryModel cm = new CategoryModel();
+    AddMovieController addMovieController = new AddMovieController();
     @FXML
     private ListView<Category> lstCategories;
     @FXML
@@ -88,6 +89,17 @@ public class BaseController implements Initializable{
     }
 
     public void clickDeleteMovie(ActionEvent actionEvent) {
+        if(tableViewMovies.getSelectionModel().getSelectedItem()!=null) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to remove this movie from the program? The file will still be on the computer", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
+            alert.showAndWait();
+
+            if (alert.getResult() == ButtonType.YES) {
+                Movie selected = tableViewMovies.getSelectionModel().getSelectedItem();
+                MovieModel movieModel = new MovieModel();
+                movieModel.removeMovie(selected);
+                mm.fetchAllMovies();
+            }
+        }
     }
 
     public void clickEditMovie(ActionEvent actionEvent) {

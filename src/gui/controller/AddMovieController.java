@@ -4,11 +4,16 @@ import gui.model.MovieModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.Window;
+
+import java.io.File;
 
 public class AddMovieController {
+    public Button btnSave;
     MovieModel model = new MovieModel();
 
     @FXML
@@ -17,6 +22,27 @@ public class AddMovieController {
     private TextField txtFile;
 
     public void clickChoose(ActionEvent actionEvent) {
+        FileChooser chooser = new FileChooser();
+        chooser.setTitle("Select Movie");
+        chooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Video", "*.mp4"));
+
+        //the default folder you start in the is your default music folder.
+        String userprofile = System.getenv("USERPROFILE");
+        chooser.setInitialDirectory(new File(userprofile +"\\videos"));
+
+        Node n = (Node) actionEvent.getSource();
+        Window stage = n.getScene().getWindow();
+
+        //this will put the full path into the path text field.
+        File selectedFile = chooser.showOpenDialog(stage);
+        if (selectedFile != null) {
+            String title = selectedFile.getName();
+            String fileTileWithOutMP4 = title.substring(0, title.length() - 4);
+            txtTitle.setText(fileTileWithOutMP4);
+            txtFile.setText(selectedFile.getAbsolutePath());
+            txtFile.setEditable(false);
+        }
 
     }
 

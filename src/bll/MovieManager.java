@@ -2,11 +2,8 @@ package bll;
 
 import be.Movie;
 import dal.MovieDAO;
-
 import java.sql.SQLException;
 import java.util.List;
-
-import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -35,7 +32,26 @@ public class MovieManager {
             throw new RuntimeException(e);
         }
     }
+    public void addMovie(String title, String path){
 
+        String imdbRating;
+        try {
+            imdbRating = getImdbRating(title);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        //String newPath = moveFile(path);
+
+        String lastviewed = String.valueOf(java.time.LocalDate.now());
+        
+        try {
+            movieDAO.addMovie(title,null,path,lastviewed,imdbRating);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+    
     /**
      * Scrapes IMDB webpage, searches for movieTitle and gets movie id from first result of webpage.
      * Goes to first results webpage using the movie id and makes grabs the rating from rating element on webpage
@@ -74,12 +90,20 @@ public class MovieManager {
     private String moveFile(String inputPath) {
         File f = new File(inputPath);
         String movieName = f.getName();
-        String outputPath = ("Movie/" + movieName);
+        String outputPath = ("Movies/" + movieName);
         try {
             Files.move(Path.of(inputPath), Path.of(outputPath));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         return outputPath;
+    }
+    public void removeMovie(Movie movie){
+
+        try {
+            movieDAO.deleteMovieByID(movie.getId());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
