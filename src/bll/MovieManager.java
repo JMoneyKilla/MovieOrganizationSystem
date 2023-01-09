@@ -83,10 +83,7 @@ public class MovieManager {
         return rating;
     }
 
-    public static void main(String[] args) throws IOException {
-        MovieManager mm = new MovieManager();
-        System.out.println(mm.getImdbRating("Batman Begins"));
-    }
+
     private String moveFile(String inputPath) {
         File f = new File(inputPath);
         String movieName = f.getName();

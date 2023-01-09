@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45fa53d1-c094-4a63-8814-f813769cc0e7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/bll/InputManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MovieOrganizationSystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MovieOrganizationSystem.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/Movie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bll/MovieManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/MovieManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +65,33 @@
       <recent name="gui.controller" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.InputManager">
+    <configuration name="InputManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bll.InputManager" />
+      <module name="MovieOrganizationSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bll.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Movie" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="be.Movie" />
+      <module name="MovieOrganizationSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="be.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MovieManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="bll.MovieManager" />
       <module name="MovieOrganizationSystem" />
@@ -80,6 +107,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.InputManager" />
+        <item itemvalue="Application.Movie" />
         <item itemvalue="Application.MovieManager" />
       </list>
     </recent_temporary>
@@ -96,7 +125,8 @@
       <workItem from="1672879108488" duration="1397000" />
       <workItem from="1672909880457" duration="306000" />
       <workItem from="1673096028502" duration="261000" />
-      <workItem from="1673108485432" duration="919000" />
+      <workItem from="1673108485432" duration="1638000" />
+      <workItem from="1673255699641" duration="10401000" />
     </task>
     <task id="LOCAL-00001" summary="added fxml and on action events in basecontroller">
       <created>1672825929830</created>

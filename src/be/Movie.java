@@ -1,6 +1,10 @@
 package be;
 
+import bll.MovieManager;
 import javafx.beans.property.*;
+
+import java.util.Calendar;
+import java.util.List;
 
 public class Movie {
     private IntegerProperty id = new SimpleIntegerProperty();
@@ -100,6 +104,16 @@ public class Movie {
 
     public void setLastViewed(String lastViewed) {
         this.lastViewed.set(lastViewed);
+    }
+
+    /**
+     * removes hyphens from last viewed date
+     * @return string of last viewed date without hyphens, YYYYMMDD format.
+     */
+    public String lastViewedNoHyphens(){
+        String noHyphens = this.getLastViewed().substring(0,4) + this.getLastViewed().substring(5,7) +
+                           this.getLastViewed().substring(8,10);
+        return noHyphens;
     }
 
     @Override
