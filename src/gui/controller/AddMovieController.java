@@ -1,5 +1,6 @@
 package gui.controller;
 
+import gui.MovieModelSingleton;
 import gui.model.MovieModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,7 +15,8 @@ import java.io.File;
 
 public class AddMovieController {
     public Button btnSave;
-    MovieModel model = new MovieModel();
+    private MovieModel model = new MovieModel();
+    private MovieModelSingleton movieModelSingleton;
 
     @FXML
     private TextField txtTitle;
@@ -52,7 +54,9 @@ public class AddMovieController {
             String title = txtTitle.getText();
             String path = txtFile.getText();
 
-            model.addMovie(title, path);
+            movieModelSingleton = MovieModelSingleton.getInstance();
+            movieModelSingleton.getMovieModel().addMovie(title, path);
+            movieModelSingleton.getMovieModel().fetchAllMovies();
 
             txtTitle.clear();
             txtFile.clear();
@@ -67,4 +71,6 @@ public class AddMovieController {
         Stage stage = (Stage) n.getScene().getWindow();
         stage.close();
     }
+
+
 }

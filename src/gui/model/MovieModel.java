@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
 
+
 public class MovieModel {
     private final ObservableList<Movie> movies;
     MovieManager bll = new MovieManager();
@@ -14,6 +15,7 @@ public class MovieModel {
     public MovieModel() {
         movies = FXCollections.observableArrayList();
     }
+
 
     public void fetchAllMovies()
     {

@@ -2,6 +2,7 @@ package gui.controller;
 
 import be.Category;
 import be.Movie;
+import gui.MovieModelSingleton;
 import gui.model.CategoryModel;
 import gui.model.MovieModel;
 import javafx.beans.InvalidationListener;
@@ -30,7 +31,7 @@ public class BaseController implements Initializable{
 
     MovieModel mm = new MovieModel();
     CategoryModel cm = new CategoryModel();
-    AddMovieController addMovieController = new AddMovieController();
+    MovieModelSingleton movieModelSingleton;
     @FXML
     private ListView<Category> lstCategories;
     @FXML
@@ -51,8 +52,10 @@ public class BaseController implements Initializable{
         columnCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
         columnRating.setCellValueFactory(new PropertyValueFactory<>("rating"));
         columnRating.setCellValueFactory(new PropertyValueFactory<>("imdbRating"));
-        tableViewMovies.setItems(mm.getMovies());
-        mm.fetchAllMovies();
+        movieModelSingleton = MovieModelSingleton.getInstance();
+        tableViewMovies.setItems(movieModelSingleton.getMovieModel().getMovies());
+        movieModelSingleton.getMovieModel().fetchAllMovies();
+
         lstCategories.setItems(cm.getCategories());
         cm.fetchAllCategories();
         sliderRating.valueProperty().addListener(new ChangeListener<Number>() {
@@ -83,6 +86,7 @@ public class BaseController implements Initializable{
             addPlaylistWindow.initOwner(stage);
             addPlaylistWindow.show();
 
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -95,9 +99,8 @@ public class BaseController implements Initializable{
 
             if (alert.getResult() == ButtonType.YES) {
                 Movie selected = tableViewMovies.getSelectionModel().getSelectedItem();
-                MovieModel movieModel = new MovieModel();
-                movieModel.removeMovie(selected);
-                mm.fetchAllMovies();
+                movieModelSingleton.getMovieModel().removeMovie(selected);
+                movieModelSingleton.getMovieModel().fetchAllMovies();
             }
         }
     }
@@ -144,7 +147,7 @@ public class BaseController implements Initializable{
         if (selectedMovie!=null && sliderRating !=null)
         {
             selectedMovie.setRating(labelRating.getText());
-            mm.updateRating(selectedMovie);
+            movieModelSingleton.getMovieModel().updateRating(selectedMovie);
             System.out.println(labelRating.getText());
         }
         else
