@@ -57,7 +57,17 @@ public class Movie {
     }
 
     public String getRating() {
-        return rating.get();
+        String oldRating = rating.get();
+        String newRating;
+        if(oldRating == null){
+            return oldRating;
+        }
+        if(oldRating.length()==4){
+            newRating = oldRating.substring(0,2) + "." + oldRating.substring(3,4);
+        }
+        else
+            newRating = oldRating.substring(0,1) + "." + oldRating.substring(2,3);
+        return newRating;
     }
 
     public String getImdbRating() {

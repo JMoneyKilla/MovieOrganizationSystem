@@ -7,9 +7,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_01_2023_13_55__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_01_2023_13_55__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_01_2023_13_57__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_01_2023_13_57__Changes_.xml" afterDir="false" />
     <list default="true" id="45fa53d1-c094-4a63-8814-f813769cc0e7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/gui/MovieModelSingleton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/controller/OldLowRatedPopUpController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/view/OldLowRatedPopUp.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/controller/AddMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/AddMovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MovieOrganizationSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieOrganizationSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/Movie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/BaseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/model/MovieModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/model/MovieModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bll/CategoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/CategoryManager.java" afterDir="false" />
@@ -26,6 +28,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -112,7 +115,7 @@
       <workItem from="1673096028502" duration="261000" />
       <workItem from="1673108485432" duration="1638000" />
       <workItem from="1673255699641" duration="10600000" />
-      <workItem from="1673302757621" duration="10322000" />
+      <workItem from="1673302757621" duration="20111000" />
     </task>
     <task id="LOCAL-00001" summary="added fxml and on action events in basecontroller">
       <created>1672825929830</created>

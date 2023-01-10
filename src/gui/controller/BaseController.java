@@ -2,6 +2,7 @@ package gui.controller;
 
 import be.Category;
 import be.Movie;
+import bll.InputManager;
 import gui.MovieModelSingleton;
 import gui.model.CategoryModel;
 import gui.model.MovieModel;
@@ -18,6 +19,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -26,12 +28,16 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class BaseController implements Initializable{
 
+    OldLowRatedPopUpController oldLowRatedPopUpController = new OldLowRatedPopUpController();
     CategoryModel cm = new CategoryModel();
     MovieModelSingleton movieModelSingleton;
+    InputManager inputManager = new InputManager();
     @FXML
     private ListView<Category> lstCategories;
     @FXML
@@ -84,8 +90,11 @@ public class BaseController implements Initializable{
             }
             }
         });
-
+        oldLowRatedPopUpController.deleteOldPopup();
     }
+
+
+
     public void clickAddMovie(ActionEvent actionEvent) {
         Node n = (Node) actionEvent.getSource();
         Window stage = n.getScene().getWindow();
@@ -114,6 +123,23 @@ public class BaseController implements Initializable{
                 movieModelSingleton.getMovieModel().removeMovie(selected);
                 movieModelSingleton.getMovieModel().fetchAllMovies();
             }
+        }
+    }
+
+    public void clickEditMovie(ActionEvent actionEvent) {
+        Node n = (Node) actionEvent.getSource();
+        Window stage = n.getScene().getWindow();
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("gui/view/AddMovieMenu.fxml"));
+            Stage addPlaylistWindow = new Stage();
+            addPlaylistWindow.setScene(new Scene(root));
+            addPlaylistWindow.setTitle("Edit Movie");
+            addPlaylistWindow.initOwner(stage);
+            addPlaylistWindow.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
