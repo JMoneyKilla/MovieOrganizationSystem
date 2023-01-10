@@ -39,11 +39,11 @@ public class BaseController implements Initializable{
     @FXML
     private Label labelRating;
     @FXML
+    private Label labelCategory;
+    @FXML
     private TableView<Movie> tableViewMovies;
     @FXML
-    private TableColumn<Movie, String> columnTitle, columnCategory, columnImdbRating;
-    @FXML
-    private TableColumn<Movie, Integer> columnRating;
+    private TableColumn<Movie, String> columnTitle, columnUserRating, columnImdbRating;
 
     @Override
     public void initialize(URL url, ResourceBundle rb)
@@ -51,22 +51,32 @@ public class BaseController implements Initializable{
         columnTitle.setEditable(true);
         columnTitle.setCellFactory(TextFieldTableCell.forTableColumn());
         columnTitle.setCellValueFactory(new PropertyValueFactory<>("name"));
-        columnCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
-        columnRating.setCellValueFactory(new PropertyValueFactory<>("rating"));
-        columnRating.setCellValueFactory(new PropertyValueFactory<>("imdbRating"));
+        columnUserRating.setCellValueFactory(new PropertyValueFactory<>("rating"));
+        columnImdbRating.setCellValueFactory(new PropertyValueFactory<>("imdbRating"));
+        tableViewMovies.setItems(movieModelSingleton.getMovieModel().getMovies());
+        movieModelSingleton.getMovieModel().fetchAllMovies();
         movieModelSingleton = MovieModelSingleton.getInstance();
         tableViewMovies.setItems(movieModelSingleton.getMovieModel().getMovies());
         movieModelSingleton.getMovieModel().fetchAllMovies();
 
         lstCategories.setItems(cm.getCategories());
         cm.fetchAllCategories();
-        sliderRating.valueProperty().addListener(new ChangeListener<Number>() {
+        lstCategories.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Category>() {
+            @Override
+            public void changed(ObservableValue<? extends Category> observable, Category oldValue, Category newValue) {
+                cm.selectCategory(newValue.getId());
+                tableViewMovies.refresh();
+                tableViewMovies.setItems(cm.getMoviesInCategory());
+            }
+        });
+               sliderRating.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
                 Movie selectedMovie = tableViewMovies.getSelectionModel().getSelectedItem();
                 double rating = sliderRating.getValue()/10;
                 if (selectedMovie !=null){
                 labelRating.textProperty().setValue(String.valueOf(String.format("%.1f", rating)));
+                System.out.println(rating);
             }
             else
             {
@@ -145,5 +155,32 @@ public class BaseController implements Initializable{
         String newTitle = movieStringCellEditEvent.getNewValue();
         Movie movie = tableViewMovies.getSelectionModel().getSelectedItem();
         movieModelSingleton.getMovieModel().updateTitle(newTitle, movie);
+    }
+
+    public void clickAddToCategory(ActionEvent actionEvent) {
+        Movie selectedMovie = tableViewMovies.getSelectionModel().getSelectedItem();
+        if (selectedMovie!=null)
+        {
+            AddCategoryToMovieMenuController.selected = tableViewMovies.getSelectionModel().getSelectedItem();
+            Node n = (Node) actionEvent.getSource();
+            Window stage = n.getScene().getWindow();
+            Parent root;
+            try {
+                root = FXMLLoader.load(getClass().getClassLoader().getResource("gui/view/AddCategoryToMovieMenu.fxml"));
+                Stage addPlaylistWindow = new Stage();
+                addPlaylistWindow.setScene(new Scene(root));
+                addPlaylistWindow.setTitle("Add Category To Movie");
+                addPlaylistWindow.initOwner(stage);
+                addPlaylistWindow.show();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else
+        {
+
+            System.out.println("Movie or Category has not been selected");
+        }
     }
 }
