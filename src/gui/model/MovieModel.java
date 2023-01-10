@@ -37,4 +37,7 @@ public class MovieModel {
         movies.remove(selectedMovie);
         bll.removeMovie(selectedMovie);
     }
+    public void updateTitle(String title, Movie movie){
+        bll.updateTitle(title,movie);
+    }
 }

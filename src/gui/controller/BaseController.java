@@ -18,6 +18,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
@@ -29,7 +30,6 @@ import java.util.ResourceBundle;
 
 public class BaseController implements Initializable{
 
-    MovieModel mm = new MovieModel();
     CategoryModel cm = new CategoryModel();
     MovieModelSingleton movieModelSingleton;
     @FXML
@@ -48,6 +48,8 @@ public class BaseController implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
+        columnTitle.setEditable(true);
+        columnTitle.setCellFactory(TextFieldTableCell.forTableColumn());
         columnTitle.setCellValueFactory(new PropertyValueFactory<>("name"));
         columnCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
         columnRating.setCellValueFactory(new PropertyValueFactory<>("rating"));
@@ -105,23 +107,6 @@ public class BaseController implements Initializable{
         }
     }
 
-    public void clickEditMovie(ActionEvent actionEvent) {
-        Node n = (Node) actionEvent.getSource();
-        Window stage = n.getScene().getWindow();
-        Parent root;
-        try {
-            root = FXMLLoader.load(getClass().getClassLoader().getResource("gui/view/AddMovieMenu.fxml"));
-            Stage addPlaylistWindow = new Stage();
-            addPlaylistWindow.setScene(new Scene(root));
-            addPlaylistWindow.setTitle("Edit Movie");
-            addPlaylistWindow.initOwner(stage);
-            addPlaylistWindow.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     public void clickAddCategory(ActionEvent actionEvent) {
         Node n = (Node) actionEvent.getSource();
         Window stage = n.getScene().getWindow();
@@ -154,5 +139,11 @@ public class BaseController implements Initializable{
         {
             labelRating.setText("Please select a movie or a rating");
         }
+    }
+
+    public void editName(TableColumn.CellEditEvent<Movie, String> movieStringCellEditEvent) {
+        String newTitle = movieStringCellEditEvent.getNewValue();
+        Movie movie = tableViewMovies.getSelectionModel().getSelectedItem();
+        movieModelSingleton.getMovieModel().updateTitle(newTitle, movie);
     }
 }

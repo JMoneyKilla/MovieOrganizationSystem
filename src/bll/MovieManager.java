@@ -103,4 +103,12 @@ public class MovieManager {
             throw new RuntimeException(e);
         }
     }
+    public void updateTitle(String title, Movie movie){
+        movie.setName(title);
+        try {
+            movieDAO.updateTitle(movie);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

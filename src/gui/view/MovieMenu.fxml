@@ -32,36 +32,28 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.Slider?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.BaseController">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.BaseController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="435.0" prefWidth="640.0" VBox.vgrow="ALWAYS">
       <children>
-            <Button layoutX="273.0" layoutY="316.0" mnemonicParsing="false" onAction="#clickAddMovie" text="Add movie" />
+            <Button layoutX="239.0" layoutY="316.0" mnemonicParsing="false" onAction="#clickAddMovie" prefHeight="25.0" prefWidth="135.0" text="Add movie" />
             <ListView fx:id="lstCategories" layoutX="30.0" layoutY="51.0" prefHeight="259.0" prefWidth="192.0" />
-            <Button layoutX="397.0" layoutY="316.0" mnemonicParsing="false" onAction="#clickDeleteMovie" text="Delete movie" />
-            <Button layoutX="530.0" layoutY="316.0" mnemonicParsing="false" onAction="#clickEditMovie" text="Edit movie" />
+            <Button layoutX="465.0" layoutY="316.0" mnemonicParsing="false" onAction="#clickDeleteMovie" prefHeight="25.0" prefWidth="135.0" text="Delete movie" />
             <Button layoutX="30.0" layoutY="316.0" mnemonicParsing="false" onAction="#clickAddCategory" text="Add category" />
             <Button layoutX="123.0" layoutY="316.0" mnemonicParsing="false" onAction="#clickDeleteCategory" text="Delete category" />
             <Text layoutX="30.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categories" />
             <Text layoutX="304.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Movies" />
             <TextField fx:id="txtSearchMovies" layoutX="399.0" layoutY="18.0" prefHeight="25.0" prefWidth="203.0" promptText="search movies" />
-            <TableView fx:id="tableViewMovies" layoutX="239.0" layoutY="51.0" prefHeight="259.0" prefWidth="361.0">
+            <TableView fx:id="tableViewMovies" editable="true" layoutX="239.0" layoutY="51.0" prefHeight="259.0" prefWidth="361.0">
               <columns>
-                <TableColumn fx:id="columnTitle" prefWidth="132.0" text="Title" />
-                  <TableColumn fx:id="columnCategory" prefWidth="96.66668701171875" text="Category" />
-                  <TableColumn fx:id="columnRating" prefWidth="49.33331298828125" text="Rating" />
-                  <TableColumn fx:id="columnImdbRating" prefWidth="82.0" text="Imdb Rating" />
+                <TableColumn fx:id="columnTitle" onEditCommit="#editName" prefWidth="132.0" text="Title" />
+                  <TableColumn fx:id="columnCategory" editable="false" prefWidth="68.0" text="Category" />
+                  <TableColumn fx:id="columnRating" editable="false" prefWidth="67.0" text="Rating" />
+                  <TableColumn fx:id="columnImdbRating" editable="false" prefWidth="94.0" text="Imdb Rating" />
               </columns>
             </TableView>
             <Text layoutX="303.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating" />
