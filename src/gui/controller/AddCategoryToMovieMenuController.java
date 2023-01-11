@@ -41,23 +41,12 @@ public class AddCategoryToMovieMenuController implements Initializable {
     }
 
 
-    public void clickSave(ActionEvent actionEvent) {
+    public void clickClose(ActionEvent actionEvent) {
         Node n = (Node) actionEvent.getSource();
         Stage stage = (Stage) n.getScene().getWindow();
         stage.close();
     }
 
-    public void clickCancel(ActionEvent actionEvent) {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to cancel? Your changes will not be saved.", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
-            alert.showAndWait();
-
-            if (alert.getResult() == ButtonType.YES) {
-                Node n = (Node) actionEvent.getSource();
-                Stage stage = (Stage) n.getScene().getWindow();
-                stage.close();
-                cm.removeMovieFromCategory(selected);
-            }
-        }
 
     public void clickAddToMovie(ActionEvent actionEvent) {
         Category selectedCategory = lstCategories.getSelectionModel().getSelectedItem();

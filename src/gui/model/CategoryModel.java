@@ -60,5 +60,9 @@ public class CategoryModel {
         bll.removeMovieFromCategory(selected);
         moviesInCategories.remove(selected);
     }
+
+    public void removeCategory(int id) {
+        bll.removeCategory(id);
+    }
 }
 

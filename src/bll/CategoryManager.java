@@ -89,4 +89,13 @@ public class CategoryManager {
             throw new RuntimeException(e);
         }
     }
+
+    public void removeCategory(int id) {
+        try {
+            categoryDAO.removeCategoryFromCatMovie(id);
+            categoryDAO.deleteCategoryByID(id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

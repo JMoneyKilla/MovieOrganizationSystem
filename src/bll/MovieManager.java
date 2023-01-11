@@ -1,6 +1,7 @@
 package bll;
 
 import be.Movie;
+import dal.CategoryDAO;
 import dal.MovieDAO;
 import java.sql.SQLException;
 import java.util.List;
@@ -16,6 +17,7 @@ import java.nio.file.Path;
 public class MovieManager {
 
     MovieDAO movieDAO = new MovieDAO();
+    CategoryDAO categoryDAO = new CategoryDAO();
     public List<Movie> getAllMovies() {
         try {
             return movieDAO.getAllMovies();
@@ -99,6 +101,7 @@ public class MovieManager {
 
         try {
             movieDAO.deleteMovieByID(movie.getId());
+            categoryDAO.removeMovieFromCategory(movie);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

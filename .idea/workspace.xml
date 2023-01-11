@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf661dd6-693f-48a8-b859-18e0ba14aabc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/gui/model/CategoryModelSingleton.java" afterDir="false" />
+    <list default="true" id="7001f9c0-84f6-458c-b13f-17c0cb08ddc7" name="Changes" comment="delete category">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/MovieModelSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/model/MovieModelSingleton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/controller/AddMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/AddMovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/CategoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/CategoryManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/MovieManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/MovieManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dal/CategoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/CategoryDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/controller/AddCategoryToMovieMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/AddCategoryToMovieMenuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/BaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/controller/OldLowRatedPopUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/OldLowRatedPopUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/model/CategoryModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/model/CategoryModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/view/AddCategoryToMovieMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/view/AddCategoryToMovieMenu.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,19 +41,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\nhi_t\Documents\GitHub\MovieOrganizationSystem\src\gui\view" />
@@ -179,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672921614313</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="delete category">
+      <created>1673437170670</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1673437170672</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,5 +204,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="category stuff" />
+    <MESSAGE value="delete category" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete category" />
   </component>
 </project>

@@ -40,8 +40,6 @@ public class BaseController implements Initializable{
     @FXML
     private Label labelRating;
     @FXML
-    private Label labelCategory;
-    @FXML
     private TableView<Movie> tableViewMovies;
     @FXML
     private TableColumn<Movie, String> columnTitle, columnUserRating, columnImdbRating;
@@ -154,6 +152,17 @@ public class BaseController implements Initializable{
     }
 
     public void clickDeleteCategory(ActionEvent actionEvent) {
+        Category selectedCategory = lstCategories.getSelectionModel().getSelectedItem();
+        int category_id;
+        if (selectedCategory != null) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to remove this category?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
+            alert.showAndWait();
+
+            if (alert.getResult() == ButtonType.YES) {
+                category_id = selectedCategory.getId();
+                cm.removeCategory(category_id);
+            }
+        }
     }
 
     public void clickAddRating(ActionEvent actionEvent) {
@@ -192,11 +201,11 @@ public class BaseController implements Initializable{
             Parent root;
             try {
                 root = FXMLLoader.load(getClass().getClassLoader().getResource("gui/view/AddCategoryToMovieMenu.fxml"));
-                Stage addPlaylistWindow = new Stage();
-                addPlaylistWindow.setScene(new Scene(root));
-                addPlaylistWindow.setTitle("Add Category To Movie");
-                addPlaylistWindow.initOwner(stage);
-                addPlaylistWindow.show();
+                Stage addCategoryMenu = new Stage();
+                addCategoryMenu.setScene(new Scene(root));
+                addCategoryMenu.setTitle("Add Category To Movie");
+                addCategoryMenu.initOwner(stage);
+                addCategoryMenu.show();
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -205,7 +214,7 @@ public class BaseController implements Initializable{
         else
         {
 
-            System.out.println("Movie or Category has not been selected");
+            labelRating.setText("Movie or Category has not been selected");
         }
     }
 

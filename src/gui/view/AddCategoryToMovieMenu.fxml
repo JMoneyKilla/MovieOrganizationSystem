@@ -39,14 +39,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="279.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.AddCategoryToMovieMenuController">
+<VBox prefHeight="343.0" prefWidth="553.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.AddCategoryToMovieMenuController">
   <children>
-    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="343.0" prefWidth="640.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="343.0" prefWidth="561.0" VBox.vgrow="ALWAYS">
          <children>
             <ListView fx:id="lstCategories" layoutX="29.0" layoutY="46.0" prefHeight="274.0" prefWidth="214.0" />
-            <Label fx:id="labelMovieTitle" layoutX="256.0" layoutY="79.0" prefHeight="17.0" prefWidth="343.0" />
-            <Button layoutX="523.0" layoutY="294.0" mnemonicParsing="false" onAction="#clickSave" text="Save" />
-            <Button layoutX="573.0" layoutY="294.0" mnemonicParsing="false" onAction="#clickCancel" text="Cancel" />
+            <Label fx:id="labelMovieTitle" layoutX="256.0" layoutY="79.0" prefHeight="17.0" prefWidth="289.0" />
+            <Button layoutX="496.0" layoutY="294.0" mnemonicParsing="false" onAction="#clickClose" text="Close" />
             <Button layoutX="256.0" layoutY="294.0" mnemonicParsing="false" onAction="#clickAddToMovie" text="Add to Movie" />
             <Text layoutX="29.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categories" />
             <Label fx:id="labelTxt" layoutX="256.0" layoutY="46.0" prefHeight="17.0" prefWidth="269.0" />

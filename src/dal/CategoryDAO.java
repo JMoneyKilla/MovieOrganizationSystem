@@ -56,6 +56,15 @@ public class CategoryDAO {
         return null;
     }
 
+    public void removeCategoryFromCatMovie(int id) {
+        String sql = "DELETE FROM CatMovie WHERE category_id='" + id + "';";
+        try (Connection con = dbConnection.getConnection();) {
+            con.createStatement().execute(sql);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     /**
      * deletes category from db by given categoryId
      *
@@ -70,6 +79,7 @@ public class CategoryDAO {
             preparedStatement.execute();
         }
     }
+
 
     /**
      * creates new category and adds it to db
