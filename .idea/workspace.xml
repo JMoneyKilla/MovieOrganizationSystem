@@ -53,7 +53,7 @@
       <recent name="C:\Users\nhi_t\Documents\GitHub\MovieOrganizationSystem\src\gui\view" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.CategoryDAO">
+  <component name="RunManager" selected="Application.MovieOrganizationSystem">
     <configuration name="CategoryDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="dal.CategoryDAO" />
       <module name="MovieOrganizationSystem" />
@@ -115,8 +115,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.CategoryDAO" />
         <item itemvalue="Application.MovieOrganizationSystem" />
+        <item itemvalue="Application.CategoryDAO" />
         <item itemvalue="Application.InputManager" />
         <item itemvalue="Application.Movie" />
         <item itemvalue="Application.MovieManager" />
@@ -138,7 +138,7 @@
       <workItem from="1673108485432" duration="1638000" />
       <workItem from="1673255699641" duration="10600000" />
       <workItem from="1673302757621" duration="20111000" />
-      <workItem from="1673427955983" duration="2167000" />
+      <workItem from="1673427955983" duration="5411000" />
     </task>
     <task id="LOCAL-00001" summary="added fxml and on action events in basecontroller">
       <created>1672825929830</created>

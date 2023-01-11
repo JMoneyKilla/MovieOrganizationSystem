@@ -248,10 +248,10 @@ public class CategoryDAO {
     public List<Category> getMissingCategories(int movie_id) throws SQLException {
         List<Category> allCategories = getAllCategories();
         List<Category> categoriesInMovie = getCategoriesFromMovies(movie_id);
-        List<Category> missingCategories = new ArrayList<>();
+        List<Category> missingCategories = new ArrayList<>(allCategories);
 
-        allCategories.removeAll(categoriesInMovie);
-        return allCategories;
+        missingCategories.removeIf(category -> categoriesInMovie.stream().anyMatch(category1 -> category1.getId()==category.getId()));
+        return missingCategories;
     }
 
     public static void main(String[] args) throws SQLException {
