@@ -250,14 +250,7 @@ public class CategoryDAO {
         List<Category> categoriesInMovie = getCategoriesFromMovies(movie_id);
         List<Category> missingCategories = new ArrayList<>();
 
-        for (Category c : categoriesInMovie) {
-            for (Category ca : allCategories) {
-                if (c.getId()==ca.getId()) {
-                    allCategories.remove(ca);
-                }
-            }
-        }
-        //missingCategories.addAll(allCategories);
+        allCategories.removeAll(categoriesInMovie);
         return allCategories;
     }
 
