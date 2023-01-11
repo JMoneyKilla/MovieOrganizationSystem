@@ -125,16 +125,17 @@ public class MovieDAO {
             preparedStatement.execute();
         }
     }
-    public void updateRating(Movie movie) throws SQLException {
-        String rating = movie.getRating();
-        int id = movie.getId();
+    public void updateIMDBRating(Movie movie) throws SQLException {
+        String rating = movie.getImdbRating();
+        String title = movie.getName();
 
         try(Connection connection = dbConnection.getConnection()){
-            String sql = "UPDATE Movie SET user_rating = ? WHERE id = ? ;";
+            String sql = "UPDATE Movie SET imdb_rating = ? WHERE movie_title = ? ;";
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, rating);
-            preparedStatement.setInt(2, id);
+            preparedStatement.setString(2, title);
             preparedStatement.execute();
         }
     }
+
 }

@@ -5,8 +5,6 @@ import bll.MovieManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.sql.SQLException;
-
 
 public class MovieModel {
     private final ObservableList<Movie> movies;
@@ -39,5 +37,8 @@ public class MovieModel {
     }
     public void updateTitle(String title, Movie movie){
         bll.updateTitle(title,movie);
+    }
+    public void updateIMDB(Movie movie){
+        bll.updateIMDB(movie);
     }
 }

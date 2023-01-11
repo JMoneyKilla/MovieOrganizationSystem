@@ -5,9 +5,6 @@ import be.Movie;
 import bll.InputManager;
 import gui.MovieModelSingleton;
 import gui.model.CategoryModel;
-import gui.model.MovieModel;
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -25,7 +22,6 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -73,7 +69,7 @@ public class BaseController implements Initializable{
                 tableViewMovies.setItems(cm.getMoviesInCategory());
             }
         });
-               sliderRating.valueProperty().addListener(new ChangeListener<Number>() {
+        sliderRating.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
                 Movie selectedMovie = tableViewMovies.getSelectionModel().getSelectedItem();
@@ -179,6 +175,12 @@ public class BaseController implements Initializable{
         String newTitle = movieStringCellEditEvent.getNewValue();
         Movie movie = tableViewMovies.getSelectionModel().getSelectedItem();
         movieModelSingleton.getMovieModel().updateTitle(newTitle, movie);
+    }
+
+    public void btnUpdateImdb(ActionEvent actionEvent) {
+        if(tableViewMovies.getSelectionModel().getSelectedItem()!=null){
+            movieModelSingleton.getMovieModel().updateIMDB(tableViewMovies.getSelectionModel().getSelectedItem());
+        }
     }
 
     public void clickAddToCategory(ActionEvent actionEvent) {

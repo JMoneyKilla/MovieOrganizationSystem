@@ -27,7 +27,7 @@ public class MovieManager {
 
     public void updateRating(Movie selectedMovie) {
         try {
-            movieDAO.updateRating(selectedMovie);
+            movieDAO.updateIMDBRating(selectedMovie);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -110,5 +110,22 @@ public class MovieManager {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+    public void updateIMDB(Movie movie){
+        try {
+            System.out.println("1");
+           String rating = getImdbRating(movie.getName());
+            System.out.println("2");
+            movie.setImdbRating(rating);
+            System.out.println("3");
+            movieDAO.updateIMDBRating(movie);
+            System.out.println("4");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
     }
 }

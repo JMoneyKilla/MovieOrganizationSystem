@@ -23,13 +23,13 @@ public class Movie {
         setImdbRating(imdbRating);
     }
 
-    public Movie(String name, String absolutePath) {
-        setName(name);
-        setAbsolutePath(absolutePath);
-    }
 
     public Movie(){
 
+    }
+    public Movie(String name, String imdb_rating){
+        setName(name);
+        setImdbRating(imdb_rating);
     }
 
     public int getId() {
