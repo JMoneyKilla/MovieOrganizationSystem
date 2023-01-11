@@ -64,7 +64,7 @@ public class CategoryDAO {
      */
     public void deleteCategoryByID(int id) throws SQLException {
         try (Connection connection = dbConnection.getConnection()) {
-            String sql = "DELETE FROM category WHERE(id = ?)";
+            String sql = "DELETE FROM Category WHERE(id = ?)";
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, id);
             preparedStatement.execute();

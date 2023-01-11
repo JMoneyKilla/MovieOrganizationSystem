@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf661dd6-693f-48a8-b859-18e0ba14aabc" name="Changes" comment="">
+    <list default="true" id="bf661dd6-693f-48a8-b859-18e0ba14aabc" name="Changes" comment="" />
+    <list default="true" id="3a4897c7-e49c-4bd5-a6e3-1868662c8038" name="Changes" comment="category stuff">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_01_2023_13_55__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_01_2023_13_55__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_01_2023_13_57__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_01_2023_13_57__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dal/CategoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/CategoryDAO.java" afterDir="false" />
     </list>
@@ -27,7 +30,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2KAqtcqRSUDcdPU1js2ciGUCLfS" />
+  <component name="ProjectId" id="2KB2HyIRo2UzbXSN6l9bJXkKBJM" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -35,38 +38,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\nhi_t\Documents\GitHub\MovieOrganizationSystem\src\gui\view" />
     </key>
   </component>
   <component name="RunManager" selected="Application.MovieOrganizationSystem">
-    <configuration name="CategoryDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="dal.CategoryDAO" />
-      <module name="MovieOrganizationSystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dal.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="InputManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="bll.InputManager" />
       <module name="MovieOrganizationSystem" />
@@ -116,7 +99,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.MovieOrganizationSystem" />
-        <item itemvalue="Application.CategoryDAO" />
         <item itemvalue="Application.InputManager" />
         <item itemvalue="Application.Movie" />
         <item itemvalue="Application.MovieManager" />
@@ -127,6 +109,7 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="bf661dd6-693f-48a8-b859-18e0ba14aabc" name="Changes" comment="" />
+      <changelist id="3a4897c7-e49c-4bd5-a6e3-1868662c8038" name="Changes" comment="category stuff" />
       <created>1672824399332</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -191,5 +174,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="category stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="category stuff" />
   </component>
 </project>
