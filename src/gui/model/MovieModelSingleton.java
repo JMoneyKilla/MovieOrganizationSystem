@@ -1,8 +1,4 @@
-package gui;
-
-import be.Movie;
-import gui.model.MovieModel;
-import javafx.collections.ObservableList;
+package gui.model;
 
 public class MovieModelSingleton {
     private static MovieModelSingleton instance = null;

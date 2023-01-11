@@ -2,7 +2,7 @@ package gui.controller;
 
 import be.Movie;
 import bll.InputManager;
-import gui.MovieModelSingleton;
+import gui.model.MovieModelSingleton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
