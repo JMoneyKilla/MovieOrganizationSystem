@@ -59,8 +59,6 @@ public class BaseController implements Initializable{
         columnTitle.setCellValueFactory(new PropertyValueFactory<>("name"));
         columnUserRating.setCellValueFactory(new PropertyValueFactory<>("rating"));
         columnImdbRating.setCellValueFactory(new PropertyValueFactory<>("imdbRating"));
-        tableViewMovies.setItems(movieModelSingleton.getMovieModel().getMovies());
-        movieModelSingleton.getMovieModel().fetchAllMovies();
         movieModelSingleton = MovieModelSingleton.getInstance();
         tableViewMovies.setItems(movieModelSingleton.getMovieModel().getMovies());
         movieModelSingleton.getMovieModel().fetchAllMovies();
