@@ -40,12 +40,12 @@ public class MovieManager {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        //String newPath = moveFile(path);
+        String newPath = moveFile(path);
 
         String lastviewed = String.valueOf(java.time.LocalDate.now());
         
         try {
-            movieDAO.addMovie(title,null,path,lastviewed,imdbRating);
+            movieDAO.addMovie(title,null,newPath,lastviewed,imdbRating);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -113,13 +113,9 @@ public class MovieManager {
     }
     public void updateIMDB(Movie movie){
         try {
-            System.out.println("1");
            String rating = getImdbRating(movie.getName());
-            System.out.println("2");
             movie.setImdbRating(rating);
-            System.out.println("3");
             movieDAO.updateIMDBRating(movie);
-            System.out.println("4");
         } catch (IOException e) {
             throw new RuntimeException(e);
         } catch (SQLException e) {

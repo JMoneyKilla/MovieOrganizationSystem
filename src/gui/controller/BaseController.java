@@ -15,12 +15,15 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Label;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.text.DecimalFormat;
@@ -207,6 +210,18 @@ public class BaseController implements Initializable{
         {
 
             System.out.println("Movie or Category has not been selected");
+        }
+    }
+
+    public void btnPlayMovie(ActionEvent actionEvent) {
+        if(tableViewMovies.getSelectionModel().getSelectedItem()!=null){
+            String path = tableViewMovies.getSelectionModel().getSelectedItem().getAbsolutePath();
+            try {
+                Desktop.getDesktop().open(new File(path));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
         }
     }
 }
