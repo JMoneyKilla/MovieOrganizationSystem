@@ -3,6 +3,7 @@ package gui.controller;
 import be.Category;
 import be.Movie;
 import bll.InputManager;
+import gui.model.CategoryModelSingleton;
 import gui.model.MovieModelSingleton;
 import gui.model.CategoryModel;
 import javafx.beans.value.ChangeListener;
@@ -33,9 +34,8 @@ import java.util.ResourceBundle;
 public class BaseController implements Initializable{
 
     OldLowRatedPopUpController oldLowRatedPopUpController = new OldLowRatedPopUpController();
-    CategoryModel cm = new CategoryModel();
     MovieModelSingleton movieModelSingleton;
-    InputManager inputManager = new InputManager();
+    CategoryModelSingleton categoryModelSingleton;
     @FXML
     private ListView<Category> lstCategories;
     @FXML
@@ -83,14 +83,15 @@ public class BaseController implements Initializable{
             }
         });
 
-        lstCategories.setItems(cm.getCategories());
-        cm.fetchAllCategories();
+        categoryModelSingleton = CategoryModelSingleton.getInstance();
+        lstCategories.setItems(categoryModelSingleton.getCategoryModel().getCategories());
+        categoryModelSingleton.getCategoryModel().fetchAllCategories();
         lstCategories.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Category>() {
             @Override
             public void changed(ObservableValue<? extends Category> observable, Category oldValue, Category newValue) {
-                cm.selectCategory(newValue.getId());
+                categoryModelSingleton.getCategoryModel().selectCategory(newValue.getId());
                 tableViewMovies.refresh();
-                tableViewMovies.setItems(cm.getMoviesInCategory());
+                tableViewMovies.setItems(categoryModelSingleton.getCategoryModel().getMoviesInCategory());
             }
         });
         sliderRating.valueProperty().addListener(new ChangeListener<Number>() {
@@ -100,7 +101,6 @@ public class BaseController implements Initializable{
                 double rating = sliderRating.getValue()/10;
                 if (selectedMovie !=null){
                 labelRating.textProperty().setValue(String.valueOf(String.format("%.1f", rating)));
-                System.out.println(rating);
             }
             else
             {
@@ -187,7 +187,7 @@ public class BaseController implements Initializable{
 
             if (alert.getResult() == ButtonType.YES) {
                 category_id = selectedCategory.getId();
-                cm.removeCategory(category_id);
+                categoryModelSingleton.getCategoryModel().removeCategory(category_id);
             }
         }
     }
@@ -245,6 +245,10 @@ public class BaseController implements Initializable{
         }
     }
 
+    /**
+     * Tries to play selected movie in the default video player.
+     * @param actionEvent
+     */
     public void btnPlayMovie(ActionEvent actionEvent) {
         if(tableViewMovies.getSelectionModel().getSelectedItem()!=null){
             String path = tableViewMovies.getSelectionModel().getSelectedItem().getAbsolutePath();

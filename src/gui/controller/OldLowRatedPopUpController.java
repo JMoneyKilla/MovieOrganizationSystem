@@ -37,11 +37,6 @@ public class OldLowRatedPopUpController implements Initializable {
     private TableColumn columnDORating;
     @FXML
     private TableColumn columnDOMovieTitle;
-    @FXML
-    private Button btnDONo;
-    @FXML
-    private Button btnDOYes;
-
 
 
     public void setOldMovies(){
