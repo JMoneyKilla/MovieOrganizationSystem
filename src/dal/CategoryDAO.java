@@ -287,34 +287,4 @@ public class CategoryDAO {
             throw new RuntimeException(e);
         }
     }
-
-    public List<Integer> getMovieIdsFromCatMovie() throws SQLException {
-        List<Integer> retrievedIds = new ArrayList<>();
-        try (Connection connection = dbConnection.getConnection()) {
-            String sql = "SELECT movie_id FROM CatMovie";
-            preparedStatement = connection.prepareStatement(sql);
-            ResultSet rs = preparedStatement.executeQuery();
-            while (rs.next()) {
-                int id = rs.getInt("movie_id");
-
-                retrievedIds.add(id);
-            }
-            return retrievedIds;
-        }
-    }
-
-    public List<Integer> getCategoryIdsCatMovie() throws SQLException {
-        List<Integer> retrievedIds = new ArrayList<>();
-        try (Connection connection = dbConnection.getConnection()) {
-            String sql = "SELECT category_id FROM CatMovie";
-            preparedStatement = connection.prepareStatement(sql);
-            ResultSet rs = preparedStatement.executeQuery();
-            while (rs.next()) {
-                int id = rs.getInt("category_id");
-
-                retrievedIds.add(id);
-            }
-            return retrievedIds;
-        }
-    }
 }
