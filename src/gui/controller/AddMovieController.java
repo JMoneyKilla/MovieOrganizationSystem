@@ -23,13 +23,18 @@ public class AddMovieController {
     @FXML
     private TextField txtFile;
 
+    /**
+     * Lets you select a mp4 file, the default start location is the windows video folder.
+     * @param actionEvent
+     */
+
     public void clickChoose(ActionEvent actionEvent) {
         FileChooser chooser = new FileChooser();
         chooser.setTitle("Select Movie");
         chooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Video", "*.mp4"));
 
-        //the default folder you start in the is your default music folder.
+        //the default folder you start in the is your default video folder.
         String userprofile = System.getenv("USERPROFILE");
         chooser.setInitialDirectory(new File(userprofile +"\\videos"));
 
@@ -48,6 +53,10 @@ public class AddMovieController {
 
     }
 
+    /**
+     * Looks at the information that has been input and uses it to try and add a movie to the program.
+     * @param actionEvent
+     */
     public void clickSave(ActionEvent actionEvent) {
         if (txtTitle !=null && txtFile != null)
         {

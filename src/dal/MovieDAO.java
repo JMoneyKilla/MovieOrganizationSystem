@@ -137,5 +137,17 @@ public class MovieDAO {
             preparedStatement.execute();
         }
     }
+    public void updateUserRating(Movie movie) throws SQLException {
+        String rating = movie.getRating();
+        String title = movie.getName();
+
+        try(Connection connection = dbConnection.getConnection()){
+            String sql = "UPDATE Movie SET user_rating = ? WHERE movie_title = ? ;";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, rating);
+            preparedStatement.setString(2, title);
+            preparedStatement.execute();
+        }
+    }
 
 }

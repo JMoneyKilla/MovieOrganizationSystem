@@ -26,15 +26,12 @@ public class MovieManager {
         }
     }
 
-
-    public void updateRating(Movie selectedMovie) {
-        try {
-            movieDAO.updateIMDBRating(selectedMovie);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-    public void addMovie(String title, String path){
+    /**
+     * Tries to add a movie to the database and moves the mp4 file to the project folder
+     * @param title
+     * @param path
+     */
+    public void addMovie(String title, String path) {
 
         String imdbRating;
         try {
@@ -47,7 +44,7 @@ public class MovieManager {
         String lastviewed = String.valueOf(java.time.LocalDate.now());
         
         try {
-            movieDAO.addMovie(title,null,newPath,lastviewed,imdbRating);
+            movieDAO.addMovie(title, null, newPath, lastviewed, imdbRating);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -57,6 +54,7 @@ public class MovieManager {
     /**
      * Scrapes IMDB webpage, searches for movieTitle and gets movie id from first result of webpage.
      * Goes to first results webpage using the movie id and makes grabs the rating from rating element on webpage
+     *
      * @param movieTitle
      * @return IMDB rating as String
      * @throws IOException
@@ -73,7 +71,7 @@ public class MovieManager {
 
         //Get imdb Id for the movie
         String movieUrl = result.attr("href");
-        String movieId = movieUrl.substring(7,16);
+        String movieId = movieUrl.substring(7, 16);
 
         // Get the movie page
         Document document = Jsoup.connect("https://www.imdb.com/title/" + movieId).get();
@@ -85,7 +83,12 @@ public class MovieManager {
         return rating;
     }
 
-
+    /**
+     * Moves selected file to the project folder
+     *
+     * @param inputPath the location of the file that is getting moved
+     * @return the new path to the location
+     */
     private String moveFile(String inputPath) {
         File f = new File(inputPath);
         String movieName = f.getName();
@@ -97,7 +100,12 @@ public class MovieManager {
         }
         return outputPath;
     }
-    public void removeMovie(Movie movie){
+
+    /**
+     * Tries to remove the movie from the database
+     * @param movie
+     */
+    public void removeMovie(Movie movie) {
 
         try {
             movieDAO.deleteMovieByID(movie.getId());
@@ -106,7 +114,13 @@ public class MovieManager {
             throw new RuntimeException(e);
         }
     }
-    public void updateTitle(String title, Movie movie){
+
+    /**
+     * Tries to update the title of a movie
+     * @param title
+     * @param movie
+     */
+    public void updateTitle(String title, Movie movie) {
         movie.setName(title);
         try {
             movieDAO.updateTitle(movie);
@@ -114,9 +128,15 @@ public class MovieManager {
             throw new RuntimeException(e);
         }
     }
-    public void updateIMDB(Movie movie){
+
+    /**
+     * tries to update the IMDB rating of a movie
+     *
+     * @param movie
+     */
+    public void updateIMDB(Movie movie) {
         try {
-           String rating = getImdbRating(movie.getName());
+            String rating = getImdbRating(movie.getName());
             movie.setImdbRating(rating);
             movieDAO.updateIMDBRating(movie);
         } catch (IOException e) {
@@ -126,5 +146,17 @@ public class MovieManager {
         }
 
 
+    }
+    /**
+     * tries to update the user rating of a movie
+     *
+     * @param selectedMovie
+     */
+    public void updateRating(Movie selectedMovie) {
+        try {
+            movieDAO.updateUserRating(selectedMovie);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

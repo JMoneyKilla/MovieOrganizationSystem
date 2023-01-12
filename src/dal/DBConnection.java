@@ -22,7 +22,8 @@ public class DBConnection {
         try {
             return ds.getConnection();
         } catch (SQLServerException e) {
-            throw new RuntimeException(e);
+
+            throw new RuntimeException();
         }
     }
 }

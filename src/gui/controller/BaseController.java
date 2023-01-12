@@ -218,6 +218,10 @@ public class BaseController implements Initializable{
         }
     }
 
+    /**
+     * Tries to play selected movie in the default video player.
+     * @param actionEvent
+     */
     public void btnPlayMovie(ActionEvent actionEvent) {
         if(tableViewMovies.getSelectionModel().getSelectedItem()!=null){
             String path = tableViewMovies.getSelectionModel().getSelectedItem().getAbsolutePath();
