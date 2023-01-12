@@ -7,6 +7,8 @@ import gui.model.MovieModelSingleton;
 import gui.model.CategoryModel;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +18,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
@@ -43,6 +46,10 @@ public class BaseController implements Initializable{
     private TableView<Movie> tableViewMovies;
     @FXML
     private TableColumn<Movie, String> columnTitle, columnUserRating, columnImdbRating;
+    @FXML
+    private TextField txtSearch;
+    @FXML
+    private ComboBox comboBox;
 
     @Override
     public void initialize(URL url, ResourceBundle rb)
@@ -55,6 +62,26 @@ public class BaseController implements Initializable{
         movieModelSingleton = MovieModelSingleton.getInstance();
         tableViewMovies.setItems(movieModelSingleton.getMovieModel().getMovies());
         movieModelSingleton.getMovieModel().fetchAllMovies();
+        ObservableList<String> choiceBoxOptions = FXCollections.observableArrayList("Movies", "Imdb Rating", "Categories");
+        comboBox.setItems(choiceBoxOptions);
+
+        txtSearch.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if(comboBox.getSelectionModel().getSelectedItem()=="Movies")
+                {
+                    movieModelSingleton.getMovieModel().searchMovie(newValue);
+                }
+                else if(comboBox.getSelectionModel().getSelectedItem()=="Imdb Rating")
+                {
+                    movieModelSingleton.getMovieModel().searchImdbRating(newValue);
+                }
+                else if(comboBox.getSelectionModel().getSelectedItem()=="Categories")
+                {
+                    movieModelSingleton.getMovieModel().searchCategories(newValue);
+                }
+            }
+        });
 
         lstCategories.setItems(cm.getCategories());
         cm.fetchAllCategories();
@@ -226,7 +253,12 @@ public class BaseController implements Initializable{
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-
         }
+    }
+
+    public void clickShowAllMovies(ActionEvent actionEvent) {
+    tableViewMovies.refresh();
+    tableViewMovies.setItems(movieModelSingleton.getMovieModel().getMovies());
+    movieModelSingleton.getMovieModel().fetchAllMovies();
     }
 }

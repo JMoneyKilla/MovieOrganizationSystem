@@ -123,7 +123,7 @@ public class CategoryDAO {
      * @return list of movies with specific category id
      * @throws SQLException
      */
-    public List<Movie> getMovieByCategory(int categoryId) throws SQLException {
+    public List<Movie> getMovieByCategory(int categoryId) {
         List<Movie> moviesByCategory = new ArrayList<>();
         Movie movie;
         try (Connection connection = dbConnection.getConnection()) {
@@ -152,6 +152,8 @@ public class CategoryDAO {
                 movie = new Movie(id, name, rating, absolutePath, lastViewed, imdbRating);
                 moviesByCategory.add(movie);
             }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
         return moviesByCategory;
     }
@@ -192,6 +194,7 @@ public class CategoryDAO {
 
     /**
      * We get movie ids depending on the chosen category id and adds them to a list.
+     *
      * @param category_id
      * @return list of movie ids.
      */
@@ -212,10 +215,12 @@ public class CategoryDAO {
         return movieIds;
     }
 
+
     /**
      * We take the list of movie ids, we get depending on the category id.
      * In order to get the movie object, we create a loop that goes through all the ids we got from the database and the ids we have in our code.
      * It checks which ids are the same and adds them to a new list.
+     *
      * @param category_id
      * @return
      * @throws SQLException
@@ -245,6 +250,7 @@ public class CategoryDAO {
         }
         return categoryIds;
     }
+
     public List<Category> getCategoriesFromMovies(int movie_id) throws SQLException {
         List<Integer> categoryIds = getCategoryIdsFromMovie(movie_id);
         List<Category> categoriesInMovie = new ArrayList<>();
@@ -260,7 +266,7 @@ public class CategoryDAO {
         List<Category> categoriesInMovie = getCategoriesFromMovies(movie_id);
         List<Category> missingCategories = new ArrayList<>(allCategories);
 
-        missingCategories.removeIf(category -> categoriesInMovie.stream().anyMatch(category1 -> category1.getId()==category.getId()));
+        missingCategories.removeIf(category -> categoriesInMovie.stream().anyMatch(category1 -> category1.getId() == category.getId()));
         return missingCategories;
     }
 
@@ -279,6 +285,36 @@ public class CategoryDAO {
             con.createStatement().execute(sql);
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public List<Integer> getMovieIdsFromCatMovie() throws SQLException {
+        List<Integer> retrievedIds = new ArrayList<>();
+        try (Connection connection = dbConnection.getConnection()) {
+            String sql = "SELECT movie_id FROM CatMovie";
+            preparedStatement = connection.prepareStatement(sql);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("movie_id");
+
+                retrievedIds.add(id);
+            }
+            return retrievedIds;
+        }
+    }
+
+    public List<Integer> getCategoryIdsCatMovie() throws SQLException {
+        List<Integer> retrievedIds = new ArrayList<>();
+        try (Connection connection = dbConnection.getConnection()) {
+            String sql = "SELECT category_id FROM CatMovie";
+            preparedStatement = connection.prepareStatement(sql);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("category_id");
+
+                retrievedIds.add(id);
+            }
+            return retrievedIds;
         }
     }
 }

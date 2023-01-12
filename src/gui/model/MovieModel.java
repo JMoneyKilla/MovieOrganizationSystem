@@ -1,6 +1,7 @@
 package gui.model;
 
 import be.Movie;
+import bll.InputManager;
 import bll.MovieManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -8,6 +9,7 @@ import javafx.collections.ObservableList;
 
 public class MovieModel {
     private final ObservableList<Movie> movies;
+    InputManager im = new InputManager();
     MovieManager bll = new MovieManager();
 
     public MovieModel() {
@@ -40,5 +42,20 @@ public class MovieModel {
     }
     public void updateIMDB(Movie movie){
         bll.updateIMDB(movie);
+    }
+
+    public void searchMovie(String text) {
+        movies.clear();
+        movies.addAll(im.searchMovies(text));
+    }
+
+    public void searchImdbRating(String text) {
+        movies.clear();
+        movies.addAll(im.searchImdbRating(text));
+    }
+
+    public void searchCategories(String text) {
+        movies.clear();;
+        movies.addAll(im.searchCategories(text));
     }
 }
