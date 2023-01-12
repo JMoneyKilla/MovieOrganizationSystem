@@ -3,6 +3,7 @@ package gui.controller;
 import be.Category;
 import be.Movie;
 import gui.model.CategoryModel;
+import gui.model.CategoryModelSingleton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -20,7 +21,7 @@ import java.util.ResourceBundle;
 public class AddCategoryToMovieMenuController implements Initializable {
 
     public static Movie selected;
-    CategoryModel cm = new CategoryModel();
+    CategoryModelSingleton categoryModelSingleton = CategoryModelSingleton.getInstance();
     @FXML
     private Label labelTxt;
     @FXML
@@ -36,8 +37,8 @@ public class AddCategoryToMovieMenuController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         autofill(selected);
         int movie_id = selected.getId();
-        cm.selectMovie(movie_id);
-        lstCategories.setItems(cm.getMissingCategories());
+        categoryModelSingleton.getCategoryModel().selectMovie(movie_id);
+        lstCategories.setItems(categoryModelSingleton.getCategoryModel().getMissingCategories());
     }
 
 
@@ -56,7 +57,9 @@ public class AddCategoryToMovieMenuController implements Initializable {
         {
             category_id = selectedCategory.getId();
             labelTxt.setText(""+selectedCategory.getName()+ " has been added to "+selected.getName());
-            cm.addMovieToCategory(category_id, movie_id);
+            categoryModelSingleton.getCategoryModel().addMovieToCategory(category_id, movie_id);
+            categoryModelSingleton.getCategoryModel().selectMovie(movie_id);
+            lstCategories.setItems(categoryModelSingleton.getCategoryModel().getMissingCategories());
         }
         else
         {
