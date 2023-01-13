@@ -6,9 +6,8 @@ import dal.CategoryDAO;
 import dal.MovieDAO;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class InputManager {
 
@@ -98,6 +97,8 @@ public class InputManager {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        if(query.equals(""))
+            return movies;
 
         for (Movie m : movies) {
             if (m.getImdbRating().charAt(0) == query.charAt(0)) {
@@ -108,8 +109,12 @@ public class InputManager {
     }
 
     public List<Movie> searchCategories(String query) {
+        boolean isEmpty = true;
         List<Category> categories;
-        List<Movie> filtered = new ArrayList<>();
+        List<Movie> preFilter = new ArrayList<>();
+        List<Movie> filtered;
+        List<String> categoriesTyped;
+        Map<String, Movie> map = new HashMap<>();
         int category_id;
 
         try {
@@ -117,14 +122,48 @@ public class InputManager {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        for (Category c : categories) {
-            if (c.getName().equals(query.toLowerCase())) {
-                category_id = c.getId();
-                filtered.clear();
-                filtered.addAll(categoryDAO.getMovieByCategory(category_id));
+        if(!query.equals("")){
+            isEmpty = false;
+        }
+        if(isEmpty){
+            try {
+                return movieDAO.getAllMovies();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
         }
+        else if(!isEmpty && query.contains(" ")){
+            categoriesTyped = List.of(query.split(" "));
+            for (String s: categoriesTyped
+                 ) {
+                for (Category c: categories
+                     ) {
+                    if(c.getName().toLowerCase().contains(s.toLowerCase())){
+                        category_id = c.getId();
+                        preFilter.addAll(categoryDAO.getMovieByCategory(category_id));
+                    }
+                }
+            }
+        }
+        else if(!isEmpty) {
+            for (Category c : categories) {
+
+                if (c.getName().toLowerCase().contains(query.toLowerCase())) {
+                    category_id = c.getId();
+                    preFilter.addAll(categoryDAO.getMovieByCategory(category_id));
+                }
+            }
+        }
+        for (Movie m: preFilter
+             ) {
+            map.put(m.getName(), m);
+        }
+        filtered = new ArrayList<>(map.values());
+
         return filtered;
     }
 }
+
+
+
 

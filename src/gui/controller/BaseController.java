@@ -89,9 +89,11 @@ public class BaseController implements Initializable{
         lstCategories.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Category>() {
             @Override
             public void changed(ObservableValue<? extends Category> observable, Category oldValue, Category newValue) {
-                categoryModelSingleton.getCategoryModel().selectCategory(newValue.getId());
-                tableViewMovies.refresh();
-                tableViewMovies.setItems(categoryModelSingleton.getCategoryModel().getMoviesInCategory());
+                if(newValue != null) {
+                    categoryModelSingleton.getCategoryModel().selectCategory(newValue.getId());
+                    tableViewMovies.refresh();
+                    tableViewMovies.setItems(categoryModelSingleton.getCategoryModel().getMoviesInCategory());
+                }
             }
         });
         sliderRating.valueProperty().addListener(new ChangeListener<Number>() {
@@ -264,5 +266,6 @@ public class BaseController implements Initializable{
     tableViewMovies.refresh();
     tableViewMovies.setItems(movieModelSingleton.getMovieModel().getMovies());
     movieModelSingleton.getMovieModel().fetchAllMovies();
+    lstCategories.getSelectionModel().clearSelection();
     }
 }

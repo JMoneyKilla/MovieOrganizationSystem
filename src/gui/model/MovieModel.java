@@ -55,7 +55,7 @@ public class MovieModel {
     }
 
     public void searchCategories(String text) {
-        movies.clear();;
+        movies.clear();
         movies.addAll(im.searchCategories(text));
     }
 }
