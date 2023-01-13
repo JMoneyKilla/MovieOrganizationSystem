@@ -68,17 +68,26 @@ public class BaseController implements Initializable{
         txtSearch.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if(lstCategories.getSelectionModel().getSelectedItem()!=null&&comboBox.getSelectionModel().getSelectedItem()!=null)
+                {
+                    labelRating.setText("Show all movies to use filter");
+                }
+                else if(lstCategories.getSelectionModel().getSelectedItem()==null){
                 if(comboBox.getSelectionModel().getSelectedItem()=="Movies")
                 {
+                    labelRating.setText("");
                     movieModelSingleton.getMovieModel().searchMovie(newValue);
                 }
                 else if(comboBox.getSelectionModel().getSelectedItem()=="Imdb Rating")
                 {
+                    labelRating.setText("");
                     movieModelSingleton.getMovieModel().searchImdbRating(newValue);
                 }
                 else if(comboBox.getSelectionModel().getSelectedItem()=="Categories")
                 {
+                    labelRating.setText("");
                     movieModelSingleton.getMovieModel().searchCategories(newValue);
+                }
                 }
             }
         });
@@ -196,15 +205,19 @@ public class BaseController implements Initializable{
 
     public void clickAddRating(ActionEvent actionEvent) {
         Movie selectedMovie = tableViewMovies.getSelectionModel().getSelectedItem();
-        if (selectedMovie!=null && sliderRating !=null)
+        if (selectedMovie!=null && labelRating.getText().length()==3 || labelRating.getText().length()==4)
         {
             selectedMovie.setRating(labelRating.getText());
             movieModelSingleton.getMovieModel().updateRating(selectedMovie);
-            System.out.println(labelRating.getText());
+            labelRating.setText("Rating has been added to "+selectedMovie.getName());
         }
-        else
+        else if(selectedMovie==null)
         {
-            labelRating.setText("Please select a movie or a rating");
+            labelRating.setText("Please select a movie");
+        }
+        else if(selectedMovie!=null && labelRating.getText().length()>4 || labelRating.getText().length()<3)
+        {
+            labelRating.setText("Please select a rating");
         }
     }
 
