@@ -78,10 +78,6 @@ public class CategoryManager {
         }
     }
 
-    public void removeMovieFromCategory(Movie selected) {
-        categoryDAO.removeMovieFromCategory(selected);
-    }
-
     public void selectMovie(int id) {
         try {
             categoryDAO.getMovieByID(id);

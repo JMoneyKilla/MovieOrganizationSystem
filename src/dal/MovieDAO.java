@@ -71,6 +71,20 @@ public class MovieDAO {
     }
 
     /**
+     * We get the id from the movie selected and deletes it from table CatMovie.
+     * We need to do this before deleting a movie from table Movie, otherwise we will have issues with the keys.
+     *
+     * @param movie
+     */
+    public void removeMovieFromCategory(Movie movie) throws SQLException {
+        int id = movie.getId();
+        String sql = "DELETE FROM CatMovie WHERE movie_id='" + id + "';";
+        try (Connection con = dbConnection.getConnection();) {
+            con.createStatement().execute(sql);
+        }
+    }
+
+    /**
      * adds movie to db based on given name, rating, absolutePath, and lastViewed
      * @param name
      * @param rating

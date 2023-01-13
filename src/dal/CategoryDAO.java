@@ -56,6 +56,11 @@ public class CategoryDAO {
         return null;
     }
 
+    /**
+     * Deletes category from table CatMovie based on the id, that has been selected.
+     *
+     * @param id
+     */
     public void removeCategoryFromCatMovie(int id) {
         String sql = "DELETE FROM CatMovie WHERE category_id='" + id + "';";
         try (Connection con = dbConnection.getConnection();) {
@@ -158,6 +163,12 @@ public class CategoryDAO {
         return moviesByCategory;
     }
 
+    /**
+     * Gets the newest id in table Category.
+     *
+     * @return
+     * @throws SQLException
+     */
     public int getNewestCategoryId() throws SQLException {
         try (Connection con = dbConnection.getConnection()) {
             ResultSet rs = con.createStatement().executeQuery("SELECT TOP 1 * FROM Category ORDER BY id DESC;");
@@ -168,6 +179,13 @@ public class CategoryDAO {
         }
     }
 
+    /**
+     * We get category_id and movie_id based on what has been selected in the program.
+     * We then add them to table CatMovie.
+     *
+     * @param category_id
+     * @param movie_id
+     */
     public void addMovieToCategory(int category_id, int movie_id) {
         String sql = "INSERT INTO CatMovie (category_id, movie_id) VALUES (?,?)";
 
@@ -182,6 +200,13 @@ public class CategoryDAO {
         }
     }
 
+    /**
+     * Goes through a list of movies and checks if the id of the selected movie matches any ids on the list.
+     *
+     * @param id
+     * @return the movie that was selected by its id.
+     * @throws SQLException
+     */
     public Movie getMovieByID(int id) throws SQLException {
         List<Movie> movies = movieDAO.getAllMovies();
         for (Movie m : movies
@@ -235,6 +260,12 @@ public class CategoryDAO {
         return moviesInCategory;
     }
 
+    /**
+     * We get category_ids based on movie_id on the table CatMovie and then adds them to a list.
+     *
+     * @param movie_id
+     * @return
+     */
     public List<Integer> getCategoryIdsFromMovie(int movie_id) {
         List<Integer> categoryIds = new ArrayList<>();
         String sql = "SELECT category_id FROM CatMovie WHERE movie_id =?";
@@ -251,6 +282,14 @@ public class CategoryDAO {
         return categoryIds;
     }
 
+    /**
+     * We get the categories that belongs to a movie by going through a list of the category_ids based on the movie_id.
+     * We go through a loop to check what ids are on the list and then adds the category to a new list.
+     *
+     * @param movie_id
+     * @return list of categories belonging to a movie.
+     * @throws SQLException
+     */
     public List<Category> getCategoriesFromMovies(int movie_id) throws SQLException {
         List<Integer> categoryIds = getCategoryIdsFromMovie(movie_id);
         List<Category> categoriesInMovie = new ArrayList<>();
@@ -261,6 +300,11 @@ public class CategoryDAO {
         return categoriesInMovie;
     }
 
+    /**
+     * @param movie_id
+     * @return
+     * @throws SQLException
+     */
     public List<Category> getMissingCategories(int movie_id) throws SQLException {
         List<Category> allCategories = getAllCategories();
         List<Category> categoriesInMovie = getCategoriesFromMovies(movie_id);
@@ -268,23 +312,5 @@ public class CategoryDAO {
 
         missingCategories.removeIf(category -> categoriesInMovie.stream().anyMatch(category1 -> category1.getId() == category.getId()));
         return missingCategories;
-    }
-
-    public static void main(String[] args) throws SQLException {
-        CategoryDAO categoryDAO = new CategoryDAO();
-        System.out.println(categoryDAO.getCategoriesFromMovies(2));
-        System.out.println(categoryDAO.getCategoryIdsFromMovie(2));
-        System.out.println(categoryDAO.getMissingCategories(2));
-    }
-
-
-    public void removeMovieFromCategory(Movie movie) {
-        int id = movie.getId();
-        String sql = "DELETE FROM CatMovie WHERE movie_id='" + id + "';";
-        try (Connection con = dbConnection.getConnection();) {
-            con.createStatement().execute(sql);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
     }
 }

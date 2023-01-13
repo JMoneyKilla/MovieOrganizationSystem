@@ -108,8 +108,8 @@ public class MovieManager {
     public void removeMovie(Movie movie) {
 
         try {
+            movieDAO.removeMovieFromCategory(movie);
             movieDAO.deleteMovieByID(movie.getId());
-            categoryDAO.removeMovieFromCategory(movie);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
