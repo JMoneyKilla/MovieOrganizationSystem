@@ -9,89 +9,48 @@ import java.util.List;
 
 public class CategoryManager {
     CategoryDAO categoryDAO = new CategoryDAO();
-    public List<Category> getAllCategories() {
-        try {
-            return categoryDAO.getAllCategories();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+
+    public List<Category> getAllCategories() throws SQLException {
+        return categoryDAO.getAllCategories();
     }
-    public List<Movie> getMoviesInCategories(int id)
-    {
-        try {
-            return categoryDAO.getMoviesFromCategory(id);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+    public List<Movie> getMoviesInCategories(int id) throws SQLException {
+        return categoryDAO.getMoviesFromCategory(id);
     }
 
-    public List<Category> getMissingCategories(int id)
-    {
-        try {
-            return categoryDAO.getMissingCategories(id);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+    public List<Category> getMissingCategories(int id) throws SQLException {
+        return categoryDAO.getMissingCategories(id);
     }
 
-    public void addCategory(String name) {
-        try {
-            categoryDAO.addCategory(name);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+    public void addCategory(String name) throws SQLException {
+        categoryDAO.addCategory(name);
     }
 
-    public int getNewestCategoryId() {
-        try {
-            return categoryDAO.getNewestCategoryId();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+    public int getNewestCategoryId() throws SQLException {
+        return categoryDAO.getNewestCategoryId();
     }
 
-    public void addMovieToCategory(int category_id, int movie_id) {
+    public void addMovieToCategory(int category_id, int movie_id) throws SQLException {
         categoryDAO.addMovieToCategory(category_id, movie_id);
     }
 
-    public void selectCategory(int id) {
-        try {
-            categoryDAO.getMoviesFromCategory(id);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+    public void selectCategory(int id) throws SQLException {
+        categoryDAO.getMoviesFromCategory(id);
     }
 
-    public Movie getMovie(int movie_id) {
-        try {
-            return categoryDAO.getMovieByID(movie_id);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+    public Movie getMovie(int movie_id) throws SQLException {
+        return categoryDAO.getMovieByID(movie_id);
     }
 
-    public Category getCategory(int category_id) {
-        try {
-            return categoryDAO.getCategoryByID(category_id);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+    public Category getCategory(int category_id) throws SQLException {
+        return categoryDAO.getCategoryByID(category_id);
     }
 
-    public void selectMovie(int id) {
-        try {
-            categoryDAO.getMovieByID(id);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+    public void selectMovie(int id) throws SQLException {
+        categoryDAO.getMovieByID(id);
     }
 
-    public void removeCategory(int id) {
-        try {
-            categoryDAO.removeCategoryFromCatMovie(id);
-            categoryDAO.deleteCategoryByID(id);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+    public void removeCategory(int id) throws SQLException {
+        categoryDAO.removeCategoryFromCatMovie(id);
+        categoryDAO.deleteCategoryByID(id);
     }
 }

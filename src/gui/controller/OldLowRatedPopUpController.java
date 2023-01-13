@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -40,13 +41,23 @@ public class OldLowRatedPopUpController implements Initializable {
 
 
     public void setOldMovies(){
-        List<Movie> movieList = inputManager.getOldBadMovies();
+        List<Movie> movieList = null;
+        try {
+            movieList = inputManager.getOldBadMovies();
+        } catch (SQLException e) {
+            AlertNotification.showAlertWindow(e.getMessage());
+        }
         oldMovies.addAll(movieList);
     }
 
     public void clickYes(ActionEvent actionEvent) {
         movieModelSingleton = MovieModelSingleton.getInstance();
-        List<Movie> movieList = inputManager.getOldBadMovies();
+        List<Movie> movieList = null;
+        try {
+            movieList = inputManager.getOldBadMovies();
+        } catch (SQLException e) {
+            AlertNotification.showAlertWindow(e.getMessage());
+        }
         for (Movie m: movieList
              ) {
             //TODO delete from CatMovie
@@ -65,7 +76,12 @@ public class OldLowRatedPopUpController implements Initializable {
     }
 
     public void deleteOldPopup(){
-        List<Movie> oldLowMovies = inputManager.getOldBadMovies();
+        List<Movie> oldLowMovies = null;
+        try {
+            oldLowMovies = inputManager.getOldBadMovies();
+        } catch (SQLException e) {
+            AlertNotification.showAlertWindow(e.getMessage());
+        }
         if(!oldLowMovies.isEmpty()){
             Stage popupWindow = new Stage();
             popupWindow.setTitle("Delete old movies?");

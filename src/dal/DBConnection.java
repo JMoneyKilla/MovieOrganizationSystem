@@ -10,7 +10,7 @@ public class DBConnection {
      * Creates a connection to our database.
      * @return database connection.
      */
-    public Connection getConnection() {
+    public Connection getConnection() throws SQLServerException {
         SQLServerDataSource ds;
         ds = new SQLServerDataSource();
         ds.setDatabaseName("CSe22B_15_mdb");
@@ -19,11 +19,7 @@ public class DBConnection {
         ds.setServerName("10.176.111.31");
         ds.setPortNumber(1433);
         ds.setTrustServerCertificate(true);
-        try {
-            return ds.getConnection();
-        } catch (SQLServerException e) {
 
-            throw new RuntimeException();
-        }
+        return ds.getConnection();
     }
 }

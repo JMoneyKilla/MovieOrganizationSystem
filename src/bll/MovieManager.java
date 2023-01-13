@@ -18,12 +18,9 @@ public class MovieManager {
 
     MovieDAO movieDAO = new MovieDAO();
     CategoryDAO categoryDAO = new CategoryDAO();
-    public List<Movie> getAllMovies() {
-        try {
-            return movieDAO.getAllMovies();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+
+    public List<Movie> getAllMovies() throws SQLException {
+        return movieDAO.getAllMovies();
     }
 
     /**
@@ -31,23 +28,16 @@ public class MovieManager {
      * @param title
      * @param path
      */
-    public void addMovie(String title, String path) {
+    public void addMovie(String title, String path) throws IOException, SQLException {
 
         String imdbRating;
-        try {
-            imdbRating = getImdbRating(title);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        imdbRating = getImdbRating(title);
         String newPath = moveFile(path);
 
         String lastviewed = String.valueOf(java.time.LocalDate.now());
         
-        try {
-            movieDAO.addMovie(title, null, newPath, lastviewed, imdbRating);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        movieDAO.addMovie(title, null, newPath, lastviewed, imdbRating);
+
 
     }
     
@@ -89,15 +79,13 @@ public class MovieManager {
      * @param inputPath the location of the file that is getting moved
      * @return the new path to the location
      */
-    private String moveFile(String inputPath) {
+    private String moveFile(String inputPath) throws IOException {
         File f = new File(inputPath);
         String movieName = f.getName();
         String outputPath = ("Movies/" + movieName);
-        try {
-            Files.move(Path.of(inputPath), Path.of(outputPath));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+
+        Files.move(Path.of(inputPath), Path.of(outputPath));
+
         return outputPath;
     }
 
@@ -105,14 +93,9 @@ public class MovieManager {
      * Tries to remove the movie from the database
      * @param movie
      */
-    public void removeMovie(Movie movie) {
-
-        try {
-            movieDAO.removeMovieFromCategory(movie);
-            movieDAO.deleteMovieByID(movie.getId());
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+    public void removeMovie(Movie movie) throws SQLException {
+        movieDAO.removeMovieFromCategory(movie);
+        movieDAO.deleteMovieByID(movie.getId());
     }
 
     /**
@@ -120,13 +103,9 @@ public class MovieManager {
      * @param title
      * @param movie
      */
-    public void updateTitle(String title, Movie movie) {
+    public void updateTitle(String title, Movie movie) throws SQLException {
         movie.setName(title);
-        try {
-            movieDAO.updateTitle(movie);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        movieDAO.updateTitle(movie);
     }
 
     /**
@@ -134,29 +113,17 @@ public class MovieManager {
      *
      * @param movie
      */
-    public void updateIMDB(Movie movie) {
-        try {
-            String rating = getImdbRating(movie.getName());
-            movie.setImdbRating(rating);
-            movieDAO.updateIMDBRating(movie);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-
+    public void updateIMDB(Movie movie) throws SQLException, IOException {
+        String rating = getImdbRating(movie.getName());
+        movie.setImdbRating(rating);
+        movieDAO.updateIMDBRating(movie);
     }
     /**
      * tries to update the user rating of a movie
      *
      * @param selectedMovie
      */
-    public void updateRating(Movie selectedMovie) {
-        try {
-            movieDAO.updateUserRating(selectedMovie);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+    public void updateRating(Movie selectedMovie) throws SQLException {
+        movieDAO.updateUserRating(selectedMovie);
     }
 }

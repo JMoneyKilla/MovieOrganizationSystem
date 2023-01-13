@@ -61,12 +61,10 @@ public class CategoryDAO {
      *
      * @param id
      */
-    public void removeCategoryFromCatMovie(int id) {
+    public void removeCategoryFromCatMovie(int id) throws SQLException {
         String sql = "DELETE FROM CatMovie WHERE category_id='" + id + "';";
         try (Connection con = dbConnection.getConnection();) {
             con.createStatement().execute(sql);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
     }
 
@@ -128,7 +126,7 @@ public class CategoryDAO {
      * @return list of movies with specific category id
      * @throws SQLException
      */
-    public List<Movie> getMovieByCategory(int categoryId) {
+    public List<Movie> getMovieByCategory(int categoryId) throws SQLException {
         List<Movie> moviesByCategory = new ArrayList<>();
         Movie movie;
         try (Connection connection = dbConnection.getConnection()) {
@@ -153,12 +151,10 @@ public class CategoryDAO {
                 String rating = rs.getString("user_rating");
                 String absolutePath = rs.getString("absolute_path");
                 String lastViewed = rs.getString("last_viewed");
-                String imdbRating = rs.getString("last_viewed");
+                String imdbRating = rs.getString("imdb_rating");
                 movie = new Movie(id, name, rating, absolutePath, lastViewed, imdbRating);
                 moviesByCategory.add(movie);
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
         return moviesByCategory;
     }
@@ -186,7 +182,7 @@ public class CategoryDAO {
      * @param category_id
      * @param movie_id
      */
-    public void addMovieToCategory(int category_id, int movie_id) {
+    public void addMovieToCategory(int category_id, int movie_id) throws SQLException {
         String sql = "INSERT INTO CatMovie (category_id, movie_id) VALUES (?,?)";
 
         try (Connection con = dbConnection.getConnection();) {
@@ -195,8 +191,6 @@ public class CategoryDAO {
             ps.setInt(2, movie_id);
             ps.execute();
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
     }
 
@@ -224,7 +218,7 @@ public class CategoryDAO {
      * @return list of movie ids.
      */
 
-    public List<Integer> getMovieIdsFromCategory(int category_id) {
+    public List<Integer> getMovieIdsFromCategory(int category_id) throws SQLException {
         List<Integer> movieIds = new ArrayList<>();
         String sql = "SELECT movie_id FROM CatMovie WHERE category_id =?";
         try (Connection con = dbConnection.getConnection();) {
@@ -234,8 +228,6 @@ public class CategoryDAO {
             while (rst.next()) {
                 movieIds.add(rst.getInt("movie_id"));
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
         return movieIds;
     }
@@ -266,7 +258,7 @@ public class CategoryDAO {
      * @param movie_id
      * @return
      */
-    public List<Integer> getCategoryIdsFromMovie(int movie_id) {
+    public List<Integer> getCategoryIdsFromMovie(int movie_id) throws SQLException {
         List<Integer> categoryIds = new ArrayList<>();
         String sql = "SELECT category_id FROM CatMovie WHERE movie_id =?";
         try (Connection con = dbConnection.getConnection();) {
@@ -276,8 +268,6 @@ public class CategoryDAO {
             while (rst.next()) {
                 categoryIds.add(rst.getInt("category_id"));
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
         return categoryIds;
     }

@@ -3,8 +3,11 @@ package gui.model;
 import be.Category;
 import be.Movie;
 import bll.CategoryManager;
+import gui.controller.AlertNotification;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
+import java.sql.SQLException;
 
 public class CategoryModel {
     private final ObservableList<Category> categories;
@@ -18,7 +21,12 @@ public class CategoryModel {
 
     public void fetchAllCategories() {
         categories.clear();
-        categories.addAll(bll.getAllCategories());
+        try {
+            categories.addAll(bll.getAllCategories());
+        } catch (SQLException e) {
+            AlertNotification.showAlertWindow(e.getMessage());
+            throw new RuntimeException();
+        }
     }
 
     public ObservableList<Category> getCategories() {
@@ -26,25 +34,46 @@ public class CategoryModel {
     }
 
     public void addCategory(String name) {
-        bll.addCategory(name);
-        int id = bll.getNewestCategoryId();
-        Category category = new Category(id, name);
-        categories.add(category);
+        try {
+            bll.addCategory(name);
+            int id = bll.getNewestCategoryId();
+            Category category = new Category(id, name);
+            categories.add(category);
+        } catch (SQLException e) {
+            AlertNotification.showAlertWindow(e.getMessage());
+            throw new RuntimeException();
+        }
+
     }
 
     public void addMovieToCategory(int category_id, int movie_id) {
-        bll.addMovieToCategory(category_id, movie_id);
+        try {
+            bll.addMovieToCategory(category_id, movie_id);
+        } catch (SQLException e) {
+            AlertNotification.showAlertWindow(e.getMessage());
+            throw new RuntimeException();
+        }
     }
 
     public void selectCategory(int id) {
-        bll.selectCategory(id);
-        moviesInCategories = FXCollections.observableArrayList(bll.getMoviesInCategories(id));
+        try {
+            bll.selectCategory(id);
+            moviesInCategories = FXCollections.observableArrayList(bll.getMoviesInCategories(id));
+        } catch (SQLException e) {
+            AlertNotification.showAlertWindow(e.getMessage());
+            throw new RuntimeException();
+        }
     }
 
     public void selectMovie(int id)
     {
-        bll.selectMovie(id);
-        missingCategories = FXCollections.observableArrayList(bll.getMissingCategories(id));
+        try {
+            bll.selectMovie(id);
+            missingCategories = FXCollections.observableArrayList(bll.getMissingCategories(id));
+        } catch (SQLException e) {
+            AlertNotification.showAlertWindow(e.getMessage());
+            throw new RuntimeException();
+        }
     }
 
     public ObservableList<Movie> getMoviesInCategory() {
@@ -57,7 +86,12 @@ public class CategoryModel {
     }
 
     public void removeCategory(int id) {
-        bll.removeCategory(id);
+        try {
+            bll.removeCategory(id);
+        } catch (SQLException e) {
+            AlertNotification.showAlertWindow(e.getMessage());
+            throw new RuntimeException();
+        }
     }
 }
 

@@ -60,7 +60,7 @@ public class InputManager {
      *
      * @return list of movies with low rating and 2 year old last viewed.
      */
-    public List<Movie> getOldBadMovies() {
+    public List<Movie> getOldBadMovies() throws SQLException {
         MovieManager mm = new MovieManager();
         List<Movie> allMovies = mm.getAllMovies();
         List<Movie> oldAndBad = new ArrayList<>();
@@ -108,26 +108,18 @@ public class InputManager {
         return filtered;
     }
 
-    public List<Movie> searchCategories(String query) {
+    public List<Movie> searchCategories(String query) throws SQLException {
         boolean isEmpty = true;
-        List<Category> categories;
+        List<Category> categories = categoryDAO.getAllCategories();
         List<Movie> preFilter = new ArrayList<>();
         int category_id;
 
-        try {
-            categories = categoryDAO.getAllCategories();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
         if(!query.equals("")){
             isEmpty = false;
         }
         if(isEmpty){
-            try {
-                return movieDAO.getAllMovies();
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
+            return movieDAO.getAllMovies();
+
         }
         else{
            List<String> categoriesTyped = seperateBySpaces(query);
