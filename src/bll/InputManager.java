@@ -112,9 +112,6 @@ public class InputManager {
         boolean isEmpty = true;
         List<Category> categories;
         List<Movie> preFilter = new ArrayList<>();
-        List<Movie> filtered;
-        List<String> categoriesTyped;
-        Map<String, Movie> map = new HashMap<>();
         int category_id;
 
         try {
@@ -132,8 +129,8 @@ public class InputManager {
                 throw new RuntimeException(e);
             }
         }
-        else if(!isEmpty && query.contains(" ")){
-            categoriesTyped = List.of(query.split(" "));
+        else{
+           List<String> categoriesTyped = seperateBySpaces(query);
             for (String s: categoriesTyped
                  ) {
                 for (Category c: categories
@@ -145,20 +142,22 @@ public class InputManager {
                 }
             }
         }
-        else if(!isEmpty) {
-            for (Category c : categories) {
+       return removeDuplicates(preFilter);
+    }
 
-                if (c.getName().toLowerCase().contains(query.toLowerCase())) {
-                    category_id = c.getId();
-                    preFilter.addAll(categoryDAO.getMovieByCategory(category_id));
-                }
-            }
-        }
+    public List<String> seperateBySpaces(String query){
+        List<String> categoriesTyped = List.of(query.split(" "));
+        return categoriesTyped;
+    }
+
+    public List<Movie> removeDuplicates(List<Movie> preFilter){
+        Map<String, Movie> map = new HashMap<>();
+
         for (Movie m: preFilter
-             ) {
+        ) {
             map.put(m.getName(), m);
         }
-        filtered = new ArrayList<>(map.values());
+        List<Movie> filtered = new ArrayList<>(map.values());
 
         return filtered;
     }

@@ -7,12 +7,6 @@
     <list default="true" id="7001f9c0-84f6-458c-b13f-17c0cb08ddc7" name="Changes" comment="delete category">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bll/InputManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/InputManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dal/CategoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/CategoryDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dal/MovieDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/MovieDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/controller/AddCategoryToMovieMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/AddCategoryToMovieMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/BaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/model/MovieModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/model/MovieModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/view/MovieMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/view/MovieMenu.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +126,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="bf661dd6-693f-48a8-b859-18e0ba14aabc" name="Changes" comment="" />
+      <changelist id="7001f9c0-84f6-458c-b13f-17c0cb08ddc7" name="Changes" comment="delete category" />
       <created>1672824399332</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -145,6 +139,7 @@
       <workItem from="1673255699641" duration="10600000" />
       <workItem from="1673302757621" duration="20111000" />
       <workItem from="1673427955983" duration="7265000" />
+      <workItem from="1673600947294" duration="2148000" />
     </task>
     <task id="LOCAL-00001" summary="added fxml and on action events in basecontroller">
       <created>1672825929830</created>
