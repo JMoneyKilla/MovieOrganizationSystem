@@ -1,5 +1,6 @@
 package dal;
 
+import be.Category;
 import be.Movie;
 
 import java.sql.Connection;
@@ -7,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class MovieDAO {
@@ -161,6 +163,37 @@ public class MovieDAO {
             preparedStatement.setString(1, rating);
             preparedStatement.setString(2, title);
             preparedStatement.execute();
+        }
+    }
+
+
+    public HashMap<Category, Movie> getAllCatMovies() throws SQLException {
+        HashMap<Category, Movie> allCatMovies = new HashMap<>();
+        Category category;
+        Movie movie;
+        try(Connection connection = dbConnection.getConnection()){
+            String sql = "SELECT *\n" +
+                    "FROM Movie m \n" +
+                    "INNER JOIN CatMovie cm \n" +
+                    "    ON m.id = cm.movie_id\n" +
+                    "RIGHT JOIN Category c\n" +
+                    "    ON cm.category_id = c.id";
+            preparedStatement = connection.prepareStatement(sql);
+            ResultSet rs = preparedStatement.executeQuery();
+            while(rs.next()){
+                int movieId = rs.getInt("movie_id");
+                String movieTitle = rs.getString("movie_title");
+                String rating = rs.getString("user_rating");
+                String absolutePath = rs.getString("absolute_path");
+                String lastViewed = rs.getString("last_viewed");
+                String imdbRating = rs.getString("imdb_rating");
+                int categoryID = rs.getInt("category_id");
+                String categoryName = rs.getString("category_name");
+                category = new Category(categoryID, categoryName);
+                movie = new Movie(movieId, movieTitle, rating, absolutePath, lastViewed, imdbRating);
+                allCatMovies.put(category, movie);
+            }
+            return allCatMovies;
         }
     }
 

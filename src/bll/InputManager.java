@@ -4,6 +4,7 @@ import be.Category;
 import be.Movie;
 import dal.CategoryDAO;
 import dal.MovieDAO;
+import gui.model.MovieModelSingleton;
 
 import java.sql.SQLException;
 import java.util.*;
@@ -13,6 +14,7 @@ public class InputManager {
 
     MovieDAO movieDAO = new MovieDAO();
     CategoryDAO categoryDAO = new CategoryDAO();
+    MovieModelSingleton movieModelSingleton;
 
     /**
      * Seperates last viewed string into integers of year, month, and day.
@@ -109,32 +111,29 @@ public class InputManager {
     }
 
     public List<Movie> searchCategories(String query) throws SQLException {
+        movieModelSingleton = MovieModelSingleton.getInstance();
         boolean isEmpty = true;
-        List<Category> categories = categoryDAO.getAllCategories();
         List<Movie> preFilter = new ArrayList<>();
-        int category_id;
+        HashMap<Category, Movie> categorizedMovies = movieModelSingleton.getMovieModel().getCategorizedMovies();
 
         if(!query.equals("")){
             isEmpty = false;
         }
         if(isEmpty){
-            return movieDAO.getAllMovies();
-
+           return movieDAO.getAllMovies();
         }
         else{
-           List<String> categoriesTyped = seperateBySpaces(query);
+            List<String> categoriesTyped = seperateBySpaces(query);
             for (String s: categoriesTyped
-                 ) {
-                for (Category c: categories
-                     ) {
-                    if(c.getName().toLowerCase().contains(s.toLowerCase())){
-                        category_id = c.getId();
-                        preFilter.addAll(categoryDAO.getMovieByCategory(category_id));
+            ) {
+                categorizedMovies.forEach((categoryKey, movie) -> {
+                    if(categoryKey.getName().toLowerCase().contains(s.toLowerCase())){
+                        preFilter.add(movie);
                     }
-                }
+                });
             }
         }
-       return removeDuplicates(preFilter);
+        return removeDuplicates(preFilter);
     }
 
     public List<String> seperateBySpaces(String query){
@@ -176,7 +175,6 @@ public class InputManager {
         return false;
     }
 }
-
 
 
 

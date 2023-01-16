@@ -15,7 +15,6 @@ import java.io.File;
 
 public class AddMovieController {
     public Button btnSave;
-    private MovieModel model = new MovieModel();
     private MovieModelSingleton movieModelSingleton;
 
     @FXML

@@ -1,5 +1,6 @@
 package gui.model;
 
+import be.Category;
 import be.Movie;
 import bll.InputManager;
 import bll.MovieManager;
@@ -9,15 +10,31 @@ import javafx.collections.ObservableList;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.HashMap;
 
 
 public class MovieModel {
     private final ObservableList<Movie> movies;
+    private HashMap<Category, Movie> categorizedMovies;
     InputManager im = new InputManager();
     MovieManager bll = new MovieManager();
 
     public MovieModel() {
         movies = FXCollections.observableArrayList();
+        fetchAllMovies();
+        updateCategorizedMovies();
+    }
+    public HashMap<Category, Movie> getCategorizedMovies(){
+        return categorizedMovies;
+    }
+
+    public void updateCategorizedMovies(){
+        try {
+            categorizedMovies = bll.getCategorizedMovies();
+        } catch (SQLException e) {
+            AlertNotification.showAlertWindow(e.getMessage());
+            throw new RuntimeException(e);
+        }
     }
 
 
@@ -100,4 +117,5 @@ public class MovieModel {
             throw new RuntimeException();
         }
     }
+
 }

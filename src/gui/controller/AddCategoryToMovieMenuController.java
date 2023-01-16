@@ -4,6 +4,7 @@ import be.Category;
 import be.Movie;
 import gui.model.CategoryModel;
 import gui.model.CategoryModelSingleton;
+import gui.model.MovieModelSingleton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,6 +23,7 @@ public class AddCategoryToMovieMenuController implements Initializable {
 
     public static Movie selected;
     CategoryModelSingleton categoryModelSingleton = CategoryModelSingleton.getInstance();
+    MovieModelSingleton movieModelSingleton = MovieModelSingleton.getInstance();
     @FXML
     private Label labelTxt;
     @FXML
@@ -60,6 +62,7 @@ public class AddCategoryToMovieMenuController implements Initializable {
             categoryModelSingleton.getCategoryModel().addMovieToCategory(category_id, movie_id);
             categoryModelSingleton.getCategoryModel().selectMovie(movie_id);
             lstCategories.setItems(categoryModelSingleton.getCategoryModel().getMissingCategories());
+            movieModelSingleton.getMovieModel().updateCategorizedMovies();
         }
         else
         {

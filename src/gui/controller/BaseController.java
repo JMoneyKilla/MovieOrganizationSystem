@@ -75,21 +75,21 @@ public class BaseController implements Initializable{
                     labelRating.setText("Select what item, you want to filter");
                 }
                 else if(lstCategories.getSelectionModel().getSelectedItem()==null){
-                if(comboBox.getSelectionModel().getSelectedItem()=="Movies")
-                {
-                    labelRating.setText("");
-                    movieModelSingleton.getMovieModel().searchMovie(newValue);
-                }
-                else if(comboBox.getSelectionModel().getSelectedItem()=="Imdb Rating")
-                {
-                    labelRating.setText("");
-                    movieModelSingleton.getMovieModel().searchImdbRating(newValue);
-                }
-                else if(comboBox.getSelectionModel().getSelectedItem()=="Categories")
-                {
-                    labelRating.setText("");
-                    movieModelSingleton.getMovieModel().searchCategories(newValue);
-                }
+                    if(comboBox.getSelectionModel().getSelectedItem()=="Movies")
+                    {
+                        labelRating.setText("");
+                        movieModelSingleton.getMovieModel().searchMovie(newValue);
+                    }
+                    else if(comboBox.getSelectionModel().getSelectedItem()=="Imdb Rating")
+                    {
+                        labelRating.setText("");
+                        movieModelSingleton.getMovieModel().searchImdbRating(newValue);
+                    }
+                    else if(comboBox.getSelectionModel().getSelectedItem()=="Categories")
+                    {
+                        labelRating.setText("");
+                        movieModelSingleton.getMovieModel().searchCategories(newValue);
+                    }
                 }
             }
         });
@@ -113,12 +113,12 @@ public class BaseController implements Initializable{
                 Movie selectedMovie = tableViewMovies.getSelectionModel().getSelectedItem();
                 double rating = sliderRating.getValue()/10;
                 if (selectedMovie !=null){
-                labelRating.textProperty().setValue(String.valueOf(String.format("%.1f", rating)));
-            }
-            else
-            {
-                labelRating.setText("Select a movie in order to rate it");
-            }
+                    labelRating.textProperty().setValue(String.valueOf(String.format("%.1f", rating)));
+                }
+                else
+                {
+                    labelRating.setText("Select a movie in order to rate it");
+                }
             }
         });
         oldLowRatedPopUpController.deleteOldPopup();
@@ -279,9 +279,9 @@ public class BaseController implements Initializable{
     }
 
     public void clickShowAllMovies(ActionEvent actionEvent) {
-    tableViewMovies.refresh();
-    tableViewMovies.setItems(movieModelSingleton.getMovieModel().getMovies());
-    movieModelSingleton.getMovieModel().fetchAllMovies();
-    lstCategories.getSelectionModel().clearSelection();
+        tableViewMovies.refresh();
+        tableViewMovies.setItems(movieModelSingleton.getMovieModel().getMovies());
+        movieModelSingleton.getMovieModel().fetchAllMovies();
+        lstCategories.getSelectionModel().clearSelection();
     }
 }

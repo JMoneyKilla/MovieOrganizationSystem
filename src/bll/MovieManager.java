@@ -1,9 +1,11 @@
 package bll;
 
+import be.Category;
 import be.Movie;
 import dal.CategoryDAO;
 import dal.MovieDAO;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -23,6 +25,10 @@ public class MovieManager {
         return movieDAO.getAllMovies();
     }
 
+    public HashMap<Category, Movie> getCategorizedMovies() throws SQLException {
+        return movieDAO.getAllCatMovies();
+    }
+
     /**
      * Tries to add a movie to the database and moves the mp4 file to the project folder
      * @param title
@@ -35,12 +41,12 @@ public class MovieManager {
         String newPath = moveFile(path);
 
         String lastviewed = String.valueOf(java.time.LocalDate.now());
-        
+
         movieDAO.addMovie(title, null, newPath, lastviewed, imdbRating);
 
 
     }
-    
+
     /**
      * Scrapes IMDB webpage, searches for movieTitle and gets movie id from first result of webpage.
      * Goes to first results webpage using the movie id and makes grabs the rating from rating element on webpage
