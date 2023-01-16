@@ -2,10 +2,8 @@ package gui.controller;
 
 import be.Category;
 import be.Movie;
-import bll.InputManager;
 import gui.model.CategoryModelSingleton;
 import gui.model.MovieModelSingleton;
-import gui.model.CategoryModel;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -71,6 +69,10 @@ public class BaseController implements Initializable{
                 if(lstCategories.getSelectionModel().getSelectedItem()!=null&&comboBox.getSelectionModel().getSelectedItem()!=null)
                 {
                     labelRating.setText("Show all movies to use filter");
+                }
+                else if(comboBox.getSelectionModel().getSelectedItem()==null)
+                {
+                    labelRating.setText("Select what item, you want to filter");
                 }
                 else if(lstCategories.getSelectionModel().getSelectedItem()==null){
                 if(comboBox.getSelectionModel().getSelectedItem()=="Movies")
@@ -199,6 +201,7 @@ public class BaseController implements Initializable{
             if (alert.getResult() == ButtonType.YES) {
                 category_id = selectedCategory.getId();
                 categoryModelSingleton.getCategoryModel().removeCategory(category_id);
+                categoryModelSingleton.getCategoryModel().fetchAllCategories();
             }
         }
     }

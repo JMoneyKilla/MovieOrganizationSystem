@@ -4,19 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7001f9c0-84f6-458c-b13f-17c0cb08ddc7" name="Changes" comment="comments and cleaning up">
-    <list default="true" id="7001f9c0-84f6-458c-b13f-17c0cb08ddc7" name="Changes" comment="delete category">
-      <change afterPath="$PROJECT_DIR$/src/gui/controller/AlertNotification.java" afterDir="false" />
+    <list default="true" id="17447822-3efc-44a5-b9f4-d087c30f9a97" name="Changes" comment="comments and cleaning up">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_01_2023_12_55_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_01_2023_12_55__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_01_2023_13_55_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_01_2023_13_55__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_01_2023_13_57_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_01_2023_13_57__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/BaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/CategoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/CategoryManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bll/InputManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/InputManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/MovieManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/MovieManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dal/CategoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/CategoryDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dal/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/DBConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/controller/OldLowRatedPopUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/OldLowRatedPopUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/BaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/CategoryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/model/CategoryModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/model/CategoryModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/model/MovieModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/model/MovieModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/view/CategoryMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/view/CategoryMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/view/MovieMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/view/MovieMenu.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +65,19 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.MovieOrganizationSystem">
+    <configuration name="CategoryController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="gui.controller.CategoryController" />
+      <module name="MovieOrganizationSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="gui.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CategoryDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="dal.CategoryDAO" />
       <module name="MovieOrganizationSystem" />
@@ -103,19 +117,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MovieManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="bll.MovieManager" />
-      <module name="MovieOrganizationSystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="bll.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="MovieOrganizationSystem" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MovieOrganizationSystem" />
       <module name="MovieOrganizationSystem" />
@@ -126,10 +127,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.MovieOrganizationSystem" />
+        <item itemvalue="Application.CategoryController" />
         <item itemvalue="Application.CategoryDAO" />
         <item itemvalue="Application.InputManager" />
         <item itemvalue="Application.Movie" />
-        <item itemvalue="Application.MovieManager" />
       </list>
     </recent_temporary>
   </component>

@@ -153,6 +153,28 @@ public class InputManager {
 
         return filtered;
     }
+
+    /**
+     * Checks if the user input is not a duplicate of an already existing category.
+     * Returns true, if it is. Returns false if it isn't.
+     */
+    public boolean isCategoryDuplicate(String title)
+    {
+        List<Category> categories;
+        try {
+            categories = categoryDAO.getAllCategories();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        for(Category c : categories)
+        {
+            if(title.equalsIgnoreCase(c.getName()))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
 

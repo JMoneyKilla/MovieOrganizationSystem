@@ -3,20 +3,24 @@ package gui.model;
 import be.Category;
 import be.Movie;
 import bll.CategoryManager;
+import bll.InputManager;
 import gui.controller.AlertNotification;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class CategoryModel {
     private final ObservableList<Category> categories;
     private ObservableList<Movie> moviesInCategories;
     private ObservableList<Category> missingCategories;
     CategoryManager bll = new CategoryManager();
+    InputManager im = new InputManager();
 
     public CategoryModel() {
         categories = FXCollections.observableArrayList();
+        fetchAllCategories();
     }
 
     public void fetchAllCategories() {
@@ -92,6 +96,10 @@ public class CategoryModel {
             AlertNotification.showAlertWindow(e.getMessage());
             throw new RuntimeException();
         }
+    }
+    public boolean isCategoryDuplicate(String title)
+    {
+        return im.isCategoryDuplicate(title);
     }
 }
 
