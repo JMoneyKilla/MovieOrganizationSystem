@@ -12,7 +12,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -58,10 +57,9 @@ public class OldLowRatedPopUpController implements Initializable {
         } catch (SQLException e) {
             AlertNotification.showAlertWindow(e.getMessage());
         }
-        for (Movie m: movieList
-             ) {
-            //TODO delete from CatMovie
+        for (Movie m: movieList) {
             movieModelSingleton.getMovieModel().removeMovie(m);
+            movieModelSingleton.getMovieModel().updateCategorizedMovies();
         }
         oldMovies.clear();
         Node n = (Node) actionEvent.getSource();

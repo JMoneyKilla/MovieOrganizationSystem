@@ -9,7 +9,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
-import java.util.List;
 
 public class CategoryModel {
     private final ObservableList<Category> categories;
@@ -40,9 +39,6 @@ public class CategoryModel {
     public void addCategory(String name) {
         try {
             bll.addCategory(name);
-            int id = bll.getNewestCategoryId();
-            Category category = new Category(id, name);
-            categories.add(category);
         } catch (SQLException e) {
             AlertNotification.showAlertWindow(e.getMessage());
             throw new RuntimeException();
@@ -59,9 +55,8 @@ public class CategoryModel {
         }
     }
 
-    public void selectCategory(int id) {
+    public void setMoviesInCategory(int id) {
         try {
-            bll.selectCategory(id);
             moviesInCategories = FXCollections.observableArrayList(bll.getMoviesInCategories(id));
         } catch (SQLException e) {
             AlertNotification.showAlertWindow(e.getMessage());
@@ -69,10 +64,9 @@ public class CategoryModel {
         }
     }
 
-    public void selectMovie(int id)
+    public void setMissingCategoriesInMovie(int id)
     {
         try {
-            bll.selectMovie(id);
             missingCategories = FXCollections.observableArrayList(bll.getMissingCategories(id));
         } catch (SQLException e) {
             AlertNotification.showAlertWindow(e.getMessage());

@@ -19,7 +19,6 @@ import java.nio.file.Path;
 public class MovieManager {
 
     MovieDAO movieDAO = new MovieDAO();
-    CategoryDAO categoryDAO = new CategoryDAO();
 
     public List<Movie> getAllMovies() throws SQLException {
         return movieDAO.getAllMovies();
@@ -36,15 +35,12 @@ public class MovieManager {
      */
     public void addMovie(String title, String path) throws IOException, SQLException {
 
-        String imdbRating;
-        imdbRating = getImdbRating(title);
+        String imdbRating = getImdbRating(title);
         String newPath = moveFile(path);
 
         String lastviewed = String.valueOf(java.time.LocalDate.now());
 
         movieDAO.addMovie(title, null, newPath, lastviewed, imdbRating);
-
-
     }
 
     /**

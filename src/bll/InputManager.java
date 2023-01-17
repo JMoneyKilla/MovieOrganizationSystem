@@ -49,7 +49,7 @@ public class InputManager {
      * @return true if user rating is less than 6 and false if rating is 6 or higher.
      */
     public boolean isRatingTooLow(Movie m) {
-        if (Double.parseDouble(m.getRating()) < 6.0)
+        if (Double.parseDouble(m.getRating()) < 6.0 || m.getRating()==null)
             return true;
         else {
             return false;
@@ -136,25 +136,21 @@ public class InputManager {
      *
      * @throws SQLException
      */
-    public List<Movie> searchCategories(String query) throws SQLException {
+    public List<Movie> searchCategories(String query) {
         movieModelSingleton = MovieModelSingleton.getInstance();
-        boolean isEmpty = true;
         List<Movie> preFilter = new ArrayList<>();
         HashMap<Category, Movie> categorizedMovies = movieModelSingleton.getMovieModel().getCategorizedMovies();
 
-        if(!query.equals("")){
-            isEmpty = false;
-        }
-        if(isEmpty){
+        if(query.equals("")){
             movieModelSingleton.getMovieModel().fetchAllMovies();
-           return movieModelSingleton.getMovieModel().getMovies();
+            return movieModelSingleton.getMovieModel().getMovies();
         }
         else{
             List<String> categoriesTyped = seperateBySpaces(query);
             for (String s: categoriesTyped
             ) {
                 categorizedMovies.forEach((categoryKey, movie) -> {
-                    if(categoryKey.getName().toLowerCase().contains(s.toLowerCase())){
+                    if(categoryKey.getName().toLowerCase().equals(s.toLowerCase())){
                         preFilter.add(movie);
                     }
                 });

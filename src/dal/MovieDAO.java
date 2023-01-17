@@ -42,21 +42,6 @@ public class MovieDAO {
         return retrievedMovies;
     }
 
-    /**
-     * finds movie from db based on given id
-     * @param id
-     * @return movie based off given id
-     * @throws SQLException
-     */
-    public Movie getMovieByID(int id) throws SQLException {
-        List<Movie> movies = getAllMovies();
-        for (Movie m: movies
-        ) {
-            if(m.getId() == id)
-                return m;
-        }
-        return null;
-    }
 
     /**
      * finds and deletes movie from db based on given id
@@ -108,27 +93,10 @@ public class MovieDAO {
     }
 
     /**
-     * updates movie with given id in db
-     * @param id
-     * @param name
-     * @param rating
-     * @param absolutePath
-     * @param lastViewed
+     * Updates movie_title in db based off given movie's id
+     * @param movie
      * @throws SQLException
      */
-    public void updateMovie(int id, String name, String rating, String absolutePath, String lastViewed, String imdbRating) throws SQLException {
-        try(Connection connection = dbConnection.getConnection()){
-            String sql = "UPDATE Movie SET movie_title = ?, user_rating = ? absolute_path = ? last_viewed = ? imdb_rating = ? WHERE id = ?";
-            preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, name);
-            preparedStatement.setString(2, rating);
-            preparedStatement.setString(3, absolutePath);
-            preparedStatement.setString(4, lastViewed);
-            preparedStatement.setInt(5, id);
-            preparedStatement.setString(6, imdbRating);
-            preparedStatement.execute();
-        }
-    }
     public void updateTitle(Movie movie) throws SQLException {
         String title = movie.getName();
         int id = movie.getId();
@@ -141,32 +109,50 @@ public class MovieDAO {
             preparedStatement.execute();
         }
     }
+
+    /**
+     * gets newest imdb rating from imdb website and updates given movie's imdb rating in db
+     * @param movie
+     * @throws SQLException
+     */
     public void updateIMDBRating(Movie movie) throws SQLException {
         String rating = movie.getImdbRating();
-        String title = movie.getName();
+        int id = movie.getId();
 
         try(Connection connection = dbConnection.getConnection()){
-            String sql = "UPDATE Movie SET imdb_rating = ? WHERE movie_title = ? ;";
+            String sql = "UPDATE Movie SET imdb_rating = ? WHERE id = ? ;";
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, rating);
-            preparedStatement.setString(2, title);
+            preparedStatement.setInt(2, id);
             preparedStatement.execute();
         }
     }
+
+    /**
+     * updates user_rating for movie in db using given movie's movie_id
+     * @param movie
+     * @throws SQLException
+     */
     public void updateUserRating(Movie movie) throws SQLException {
         String rating = movie.getRating();
-        String title = movie.getName();
+        int id = movie.getId();
 
         try(Connection connection = dbConnection.getConnection()){
-            String sql = "UPDATE Movie SET user_rating = ? WHERE movie_title = ? ;";
+            String sql = "UPDATE Movie SET user_rating = ? WHERE id = ? ;";
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, rating);
-            preparedStatement.setString(2, title);
+            preparedStatement.setInt(2, id);
             preparedStatement.execute();
         }
     }
 
 
+    /**
+     * Creates Hashmap from CatMovie table with category as key and movie as value.
+     * This hashmap is just a representation of the catmovie table using objects instead of ids
+     * @return hashmap of categorized movies
+     * @throws SQLException
+     */
     public HashMap<Category, Movie> getAllCatMovies() throws SQLException {
         HashMap<Category, Movie> allCatMovies = new HashMap<>();
         Category category;
@@ -196,5 +182,4 @@ public class MovieDAO {
             return allCatMovies;
         }
     }
-
 }

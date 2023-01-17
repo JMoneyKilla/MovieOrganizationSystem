@@ -110,12 +110,7 @@ public class MovieModel {
 
     public void searchCategories(String text) {
         movies.clear();
-        try {
-            movies.addAll(im.searchCategories(text));
-        } catch (SQLException e) {
-            AlertNotification.showAlertWindow(e.getMessage());
-            throw new RuntimeException();
-        }
+        movies.addAll(im.searchCategories(text));
     }
 
 }

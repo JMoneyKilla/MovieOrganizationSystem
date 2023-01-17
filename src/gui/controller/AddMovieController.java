@@ -1,7 +1,6 @@
 package gui.controller;
 
 import gui.model.MovieModelSingleton;
-import gui.model.MovieModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;

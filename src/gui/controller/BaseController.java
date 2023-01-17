@@ -43,7 +43,7 @@ public class BaseController implements Initializable{
     @FXML
     private TableView<Movie> tableViewMovies;
     @FXML
-    private TableColumn<Movie, String> columnTitle, columnUserRating, columnImdbRating;
+    private TableColumn<Movie, String> columnTitle, columnUserRating, columnImdbRating, columnLastViewed;
     @FXML
     private TextField txtSearch;
     @FXML
@@ -57,16 +57,18 @@ public class BaseController implements Initializable{
         columnTitle.setCellValueFactory(new PropertyValueFactory<>("name"));
         columnUserRating.setCellValueFactory(new PropertyValueFactory<>("rating"));
         columnImdbRating.setCellValueFactory(new PropertyValueFactory<>("imdbRating"));
+        columnLastViewed.setCellValueFactory(new PropertyValueFactory<>("lastViewed"));
         movieModelSingleton = MovieModelSingleton.getInstance();
         tableViewMovies.setItems(movieModelSingleton.getMovieModel().getMovies());
         movieModelSingleton.getMovieModel().fetchAllMovies();
         ObservableList<String> choiceBoxOptions = FXCollections.observableArrayList("Movies", "Imdb Rating", "Categories");
         comboBox.setItems(choiceBoxOptions);
 
+        //Listener to change search type based on selected filter option
         txtSearch.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if(lstCategories.getSelectionModel().getSelectedItem()!=null&&comboBox.getSelectionModel().getSelectedItem()!=null)
+                if(lstCategories.getSelectionModel().getSelectedItem()!=null&&(comboBox.getSelectionModel().getSelectedItem()!=null || comboBox.getSelectionModel().getSelectedItem() == null))
                 {
                     labelRating.setText("Show all movies to use filter");
                 }
@@ -94,6 +96,8 @@ public class BaseController implements Initializable{
             }
         });
 
+        //Listener to chang tableviewmovies based on selected category
+
         categoryModelSingleton = CategoryModelSingleton.getInstance();
         lstCategories.setItems(categoryModelSingleton.getCategoryModel().getCategories());
         categoryModelSingleton.getCategoryModel().fetchAllCategories();
@@ -101,12 +105,13 @@ public class BaseController implements Initializable{
             @Override
             public void changed(ObservableValue<? extends Category> observable, Category oldValue, Category newValue) {
                 if(newValue != null) {
-                    categoryModelSingleton.getCategoryModel().selectCategory(newValue.getId());
+                    categoryModelSingleton.getCategoryModel().setMoviesInCategory(newValue.getId());
                     tableViewMovies.refresh();
                     tableViewMovies.setItems(categoryModelSingleton.getCategoryModel().getMoviesInCategory());
                 }
             }
         });
+        //Listener to change labelrating to value of slider in 0.0 format
         sliderRating.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
@@ -132,14 +137,15 @@ public class BaseController implements Initializable{
         Parent root;
         try {
             root = FXMLLoader.load(getClass().getClassLoader().getResource("gui/view/AddMovieMenu.fxml"));
-            Stage addPlaylistWindow = new Stage();
-            addPlaylistWindow.setScene(new Scene(root));
-            addPlaylistWindow.setTitle("Add Movie");
-            addPlaylistWindow.initOwner(stage);
-            addPlaylistWindow.show();
+            Stage addMovieWindow = new Stage();
+            addMovieWindow.setScene(new Scene(root));
+            addMovieWindow.setTitle("Add Movie");
+            addMovieWindow.initOwner(stage);
+            addMovieWindow.show();
 
 
         } catch (IOException e) {
+            AlertNotification.showAlertWindow(e.getMessage());
             e.printStackTrace();
         }
     }
@@ -157,22 +163,6 @@ public class BaseController implements Initializable{
         }
     }
 
-    public void clickEditMovie(ActionEvent actionEvent) {
-        Node n = (Node) actionEvent.getSource();
-        Window stage = n.getScene().getWindow();
-        Parent root;
-        try {
-            root = FXMLLoader.load(getClass().getClassLoader().getResource("gui/view/AddMovieMenu.fxml"));
-            Stage addPlaylistWindow = new Stage();
-            addPlaylistWindow.setScene(new Scene(root));
-            addPlaylistWindow.setTitle("Edit Movie");
-            addPlaylistWindow.initOwner(stage);
-            addPlaylistWindow.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     public void clickAddCategory(ActionEvent actionEvent) {
         Node n = (Node) actionEvent.getSource();
@@ -180,13 +170,14 @@ public class BaseController implements Initializable{
         Parent root;
         try {
             root = FXMLLoader.load(getClass().getClassLoader().getResource("gui/view/CategoryMenu.fxml"));
-            Stage addPlaylistWindow = new Stage();
-            addPlaylistWindow.setScene(new Scene(root));
-            addPlaylistWindow.setTitle("Create new Category");
-            addPlaylistWindow.initOwner(stage);
-            addPlaylistWindow.show();
+            Stage addCategoryWindow = new Stage();
+            addCategoryWindow.setScene(new Scene(root));
+            addCategoryWindow.setTitle("Create new Category");
+            addCategoryWindow.initOwner(stage);
+            addCategoryWindow.show();
 
         } catch (IOException e) {
+            AlertNotification.showAlertWindow(e.getMessage());
             e.printStackTrace();
         }
     }
@@ -206,6 +197,7 @@ public class BaseController implements Initializable{
         }
     }
 
+    //Updates movie user rating based on labelRating value
     public void clickAddRating(ActionEvent actionEvent) {
         Movie selectedMovie = tableViewMovies.getSelectionModel().getSelectedItem();
         if (selectedMovie!=null && labelRating.getText().length()==3 || labelRating.getText().length()==4)
@@ -231,6 +223,8 @@ public class BaseController implements Initializable{
     }
 
     public void btnUpdateImdb(ActionEvent actionEvent) {
+        if(tableViewMovies.getSelectionModel().getSelectedItem() == null)
+            labelRating.setText("Select a movie to update Imdb rating");
         if(tableViewMovies.getSelectionModel().getSelectedItem()!=null){
             movieModelSingleton.getMovieModel().updateIMDB(tableViewMovies.getSelectionModel().getSelectedItem());
         }
@@ -253,13 +247,14 @@ public class BaseController implements Initializable{
                 addCategoryMenu.show();
 
             } catch (IOException e) {
+                AlertNotification.showAlertWindow(e.getMessage());
                 e.printStackTrace();
             }
         }
         else
         {
 
-            labelRating.setText("Movie or Category has not been selected");
+            labelRating.setText("Movie has not been selected");
         }
     }
 
@@ -271,8 +266,10 @@ public class BaseController implements Initializable{
         if(tableViewMovies.getSelectionModel().getSelectedItem()!=null){
             String path = tableViewMovies.getSelectionModel().getSelectedItem().getAbsolutePath();
             try {
+                tableViewMovies.getSelectionModel().getSelectedItem().setLastViewed(String.valueOf(java.time.LocalDate.now()));
                 Desktop.getDesktop().open(new File(path));
             } catch (IOException e) {
+                AlertNotification.showAlertWindow(e.getMessage());
                 throw new RuntimeException(e);
             }
         }

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="379.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.BaseController">
+<VBox prefHeight="379.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.BaseController">
   <children>
     <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="403.0" prefWidth="872.0" VBox.vgrow="ALWAYS">
       <children>
@@ -26,9 +26,10 @@
             <TextField fx:id="txtSearch" layoutX="389.0" layoutY="27.0" prefHeight="25.0" prefWidth="200.0" />
             <TableView fx:id="tableViewMovies" editable="true" layoutX="239.0" layoutY="57.0" prefHeight="253.0" prefWidth="595.0">
               <columns>
-                <TableColumn fx:id="columnTitle" onEditCommit="#editName" prefWidth="399.9999694824219" text="Title" />
-                  <TableColumn fx:id="columnImdbRating" editable="false" minWidth="0.6666259765625" prefWidth="100.0" text="Imdb Rating" />
-                  <TableColumn fx:id="columnUserRating" minWidth="2.666717529296875" prefWidth="94.66668701171875" text="User Rating" />
+                <TableColumn fx:id="columnTitle" onEditCommit="#editName" prefWidth="320.66673278808594" text="Title" />
+                  <TableColumn fx:id="columnImdbRating" editable="false" minWidth="0.6666259765625" prefWidth="81.33331298828125" text="Imdb Rating" />
+                  <TableColumn fx:id="columnUserRating" minWidth="2.666717529296875" prefWidth="71.33331298828125" text="User Rating" />
+                  <TableColumn fx:id="columnLastViewed" prefWidth="121.33333333333337" text="Last Viewed" />
               </columns>
             </TableView>
             <Text layoutX="371.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating" />
