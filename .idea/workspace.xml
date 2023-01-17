@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7001f9c0-84f6-458c-b13f-17c0cb08ddc7" name="Changes" comment="comments and cleaning up">
-      <change beforePath="$PROJECT_DIR$/src/bll/CategoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/CategoryManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bll/InputManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/InputManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/MovieManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/MovieManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dal/MovieDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/MovieDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/controller/AddCategoryToMovieMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/AddCategoryToMovieMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/controller/AddMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/AddMovieController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/BaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/model/CategoryModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/model/CategoryModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/model/CategoryModelSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/model/CategoryModelSingleton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/model/MovieModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/model/MovieModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/model/MovieModelSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/model/MovieModelSingleton.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,6 +141,7 @@
       <workItem from="1673302757621" duration="20111000" />
       <workItem from="1673427955983" duration="7265000" />
       <workItem from="1673600947294" duration="2148000" />
+      <workItem from="1673917021866" duration="3010000" />
     </task>
     <task id="LOCAL-00001" summary="added fxml and on action events in basecontroller">
       <created>1672825929830</created>

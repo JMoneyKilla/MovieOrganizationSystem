@@ -280,6 +280,7 @@ public class BaseController implements Initializable{
 
     public void clickShowAllMovies(ActionEvent actionEvent) {
         tableViewMovies.refresh();
+        txtSearch.clear();
         tableViewMovies.setItems(movieModelSingleton.getMovieModel().getMovies());
         movieModelSingleton.getMovieModel().fetchAllMovies();
         lstCategories.getSelectionModel().clearSelection();

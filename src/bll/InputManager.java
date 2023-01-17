@@ -4,6 +4,7 @@ import be.Category;
 import be.Movie;
 import dal.CategoryDAO;
 import dal.MovieDAO;
+import gui.model.CategoryModelSingleton;
 import gui.model.MovieModelSingleton;
 
 import java.sql.SQLException;
@@ -11,9 +12,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class InputManager {
-
-    MovieDAO movieDAO = new MovieDAO();
-    CategoryDAO categoryDAO = new CategoryDAO();
+    CategoryModelSingleton categoryModelSingleton;
     MovieModelSingleton movieModelSingleton;
 
     /**
@@ -75,34 +74,48 @@ public class InputManager {
         return oldAndBad;
     }
 
+    /**
+     * Uses movieModelSingleton to get all movies.
+     * Checks if movies' names in allMovies contain query.
+     * Adds movie to filtered list if query is contained in movie name.
+     * @param query what the user types in search box
+     * @return returns list of movies filtered by name.
+     */
     public List<Movie> searchMovies(String query) {
-        List<Movie> movies;
-        try {
-            movies = movieDAO.getAllMovies();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        movieModelSingleton = MovieModelSingleton.getInstance();
+        movieModelSingleton.getMovieModel().fetchAllMovies();
+        List<Movie> allMovies = new ArrayList<>(movieModelSingleton.getMovieModel().getMovies());
+        movieModelSingleton.getMovieModel().getMovies().clear();
         List<Movie> filtered = new ArrayList<>();
 
-        for (Movie m : movies) {
-            if (m.getName().toLowerCase().contains(query.toLowerCase()))
+        for (Movie m: allMovies
+             ) {
+            if(m.getName().toLowerCase().contains(query.toLowerCase())) {
                 filtered.add(m);
+            }
         }
         return filtered;
     }
 
+    /**
+     * Gets list of all movies from movieModelSingleton.
+     * If query equals "" all movies are returned.
+     * Checks if the first character of the imdb rating equals the first character of the query
+     * and returns if true.
+     * @param query what the user types in search box
+     * @return List of movies with matching Imdb rating
+     */
     public List<Movie> searchImdbRating(String query) {
-        List<Movie> movies;
+        movieModelSingleton = MovieModelSingleton.getInstance();
+        movieModelSingleton.getMovieModel().fetchAllMovies();
+        List<Movie> allMovies = new ArrayList<>(movieModelSingleton.getMovieModel().getMovies());
+        movieModelSingleton.getMovieModel().getMovies().clear();
         List<Movie> filtered = new ArrayList<>();
-        try {
-            movies = movieDAO.getAllMovies();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        if(query.equals(""))
-            return movies;
 
-        for (Movie m : movies) {
+        if(query.equals(""))
+            return allMovies;
+
+        for (Movie m : allMovies) {
             if (m.getImdbRating().charAt(0) == query.charAt(0)) {
                 filtered.add(m);
             }
@@ -110,6 +123,19 @@ public class InputManager {
         return filtered;
     }
 
+    /**
+     * Uses movieModelSingleton to get a hashmap with all Movies organized by category.
+     * Checks if the search bar is empty, if empty a list of all movies will be returned.
+     * If search is not empty, category/categories are checked against hashmap's keys, if there are
+     * any matches then the movie is added to a list "prefiltered".
+     * Prefiltered is then returned after any duplicate movies are removed.
+     *
+     * @param query what the user types in the search box.
+     *
+     * @return List of movies that have a category that matches the query.
+     *
+     * @throws SQLException
+     */
     public List<Movie> searchCategories(String query) throws SQLException {
         movieModelSingleton = MovieModelSingleton.getInstance();
         boolean isEmpty = true;
@@ -120,7 +146,8 @@ public class InputManager {
             isEmpty = false;
         }
         if(isEmpty){
-           return movieDAO.getAllMovies();
+            movieModelSingleton.getMovieModel().fetchAllMovies();
+           return movieModelSingleton.getMovieModel().getMovies();
         }
         else{
             List<String> categoriesTyped = seperateBySpaces(query);
@@ -136,11 +163,25 @@ public class InputManager {
         return removeDuplicates(preFilter);
     }
 
+    /**
+     * checks if query string contains a space, splits it on the space and adds the strings
+     * to a list
+     * @param query what the user types in search box
+     * @return List of one or more strings which represent the categories that were typed
+     */
     public List<String> seperateBySpaces(String query){
         List<String> categoriesTyped = List.of(query.split(" "));
         return categoriesTyped;
     }
 
+    /**
+     * Takes a list of movies and puts them in a hashmap.
+     * Uses the Movie name as a key and the Movie object as a value so
+     * map only contains movies with unique name.
+     * Adds all values of the map to a List to return.
+     * @param preFilter
+     * @return List of movies with unique names, no duplicates.
+     */
     public List<Movie> removeDuplicates(List<Movie> preFilter){
         Map<String, Movie> map = new HashMap<>();
 
@@ -159,12 +200,10 @@ public class InputManager {
      */
     public boolean isCategoryDuplicate(String title)
     {
+        categoryModelSingleton = CategoryModelSingleton.getInstance();
+        categoryModelSingleton.getCategoryModel().fetchAllCategories();
         List<Category> categories;
-        try {
-            categories = categoryDAO.getAllCategories();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        categories = categoryModelSingleton.getCategoryModel().getCategories();
         for(Category c : categories)
         {
             if(title.equalsIgnoreCase(c.getName()))
