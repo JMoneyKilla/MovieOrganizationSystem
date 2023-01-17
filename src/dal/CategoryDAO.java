@@ -290,9 +290,11 @@ public class CategoryDAO {
         return categoriesInMovie;
     }
 
-    /**
+    /** We have a list of all categories and the categories in a specific movie.
+     * We remove if the categoryInMovie matches any category in the list of all categories.
+     * We then return a list of the missing categories in the specific movie.
      * @param movie_id
-     * @return
+     * @return list of missing categories.
      * @throws SQLException
      */
     public List<Category> getMissingCategories(int movie_id) throws SQLException {

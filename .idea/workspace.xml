@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="17447822-3efc-44a5-b9f4-d087c30f9a97" name="Changes" comment="a user can no longer add the same categories&#10;updates the view when a category is deleted">
     <list default="true" id="7001f9c0-84f6-458c-b13f-17c0cb08ddc7" name="Changes" comment="comments and cleaning up">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bll/InputManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/InputManager.java" afterDir="false" />
@@ -199,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673604495735</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="a user can no longer add the same categories&#10;updates the view when a category is deleted">
+      <created>1673874391545</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1673874391569</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,6 +228,8 @@
     <MESSAGE value="category stuff" />
     <MESSAGE value="delete category" />
     <MESSAGE value="comments and cleaning up" />
-    <option name="LAST_COMMIT_MESSAGE" value="comments and cleaning up" />
+    <MESSAGE value="a user can no longer add multiple categories&#10;updates the view when a category is deleted" />
+    <MESSAGE value="a user can no longer add the same categories&#10;updates the view when a category is deleted" />
+    <option name="LAST_COMMIT_MESSAGE" value="a user can no longer add the same categories&#10;updates the view when a category is deleted" />
   </component>
 </project>
