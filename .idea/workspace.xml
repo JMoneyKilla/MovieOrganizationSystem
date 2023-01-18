@@ -6,19 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="17447822-3efc-44a5-b9f4-d087c30f9a97" name="Changes" comment="a user can no longer add the same categories&#10;updates the view when a category is deleted">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/CategoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/CategoryManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bll/InputManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/InputManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/MovieManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/MovieManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dal/CategoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/CategoryDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dal/MovieDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/MovieDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/controller/AddCategoryToMovieMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/AddCategoryToMovieMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/controller/AddMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/AddMovieController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/BaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/controller/OldLowRatedPopUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/OldLowRatedPopUpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/model/CategoryModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/model/CategoryModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/model/MovieModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/model/MovieModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/view/MovieMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/view/MovieMenu.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +126,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="7001f9c0-84f6-458c-b13f-17c0cb08ddc7" name="Changes" comment="delete category" />
+      <changelist id="17447822-3efc-44a5-b9f4-d087c30f9a97" name="Changes" comment="a user can no longer add the same categories&#10;updates the view when a category is deleted" />
       <created>1672824399332</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -154,6 +142,7 @@
       <workItem from="1673600947294" duration="2148000" />
       <workItem from="1673917021866" duration="3166000" />
       <workItem from="1673946876583" duration="3331000" />
+      <workItem from="1673971647759" duration="787000" />
     </task>
     <task id="LOCAL-00001" summary="added fxml and on action events in basecontroller">
       <created>1672825929830</created>

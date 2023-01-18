@@ -141,9 +141,8 @@ public class InputManager {
         List<Movie> preFilter = new ArrayList<>();
         HashMap<Category, Movie> categorizedMovies = movieModelSingleton.getMovieModel().getCategorizedMovies();
 
-        if(query.equals("")){
+        if(query.isEmpty()){
             movieModelSingleton.getMovieModel().fetchAllMovies();
-            return movieModelSingleton.getMovieModel().getMovies();
         }
         else{
             List<String> categoriesTyped = seperateBySpaces(query);
