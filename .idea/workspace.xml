@@ -14,6 +14,8 @@
       <change beforePath="$PROJECT_DIR$/src/gui/view/CategoryMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/view/CategoryMenu.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/view/MovieMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/view/MovieMenu.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/view/OldLowRatedPopUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/view/OldLowRatedPopUp.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dal/CategoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dal/CategoryDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/controller/OldLowRatedPopUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/OldLowRatedPopUpController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,6 +152,7 @@
       <workItem from="1673917021866" duration="3166000" />
       <workItem from="1673946876583" duration="3331000" />
       <workItem from="1673971647759" duration="787000" />
+      <workItem from="1674033035574" duration="5480000" />
     </task>
     <task id="LOCAL-00001" summary="added fxml and on action events in basecontroller">
       <created>1672825929830</created>

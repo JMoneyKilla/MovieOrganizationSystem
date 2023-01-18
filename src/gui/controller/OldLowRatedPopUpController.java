@@ -62,6 +62,7 @@ public class OldLowRatedPopUpController implements Initializable {
             movieModelSingleton.getMovieModel().updateCategorizedMovies();
         }
         oldMovies.clear();
+        movieModelSingleton.getMovieModel().fetchAllMovies();
         Node n = (Node) actionEvent.getSource();
         Stage stage = (Stage) n.getScene().getWindow();
         stage.close();
