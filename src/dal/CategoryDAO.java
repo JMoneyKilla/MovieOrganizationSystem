@@ -142,27 +142,6 @@ public class CategoryDAO {
 
 
     /**
-     * We get movie ids depending on the chosen category id and adds them to a list.
-     *
-     * @param category_id
-     * @return list of movie ids.
-     */
-
-    public List<Integer> getMovieIdsFromCategory(int category_id) throws SQLException {
-        List<Integer> movieIds = new ArrayList<>();
-        String sql = "SELECT movie_id FROM CatMovie WHERE category_id =?";
-        try (Connection con = dbConnection.getConnection();) {
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, category_id);
-            ResultSet rst = ps.executeQuery();
-            while (rst.next()) {
-                movieIds.add(rst.getInt("movie_id"));
-            }
-        }
-        return movieIds;
-    }
-
-    /**
      * Joins Category and Movie tables on CatMovie.
      * Takes category_name and category_id based on movie_id to return list of categories in movie
      * @param movieId

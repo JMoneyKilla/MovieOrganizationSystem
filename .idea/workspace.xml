@@ -4,6 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="17447822-3efc-44a5-b9f4-d087c30f9a97" name="Changes" comment="updated filtering of imdb rating&#10;updating the view">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/InputManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/InputManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/MovieManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/MovieManager.java" afterDir="false" />
+    </list>
     <list default="true" id="17447822-3efc-44a5-b9f4-d087c30f9a97" name="Changes" comment="a user can no longer add the same categories&#10;updates the view when a category is deleted" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,6 +233,7 @@
     <MESSAGE value="comments and cleaning up" />
     <MESSAGE value="a user can no longer add multiple categories&#10;updates the view when a category is deleted" />
     <MESSAGE value="a user can no longer add the same categories&#10;updates the view when a category is deleted" />
-    <option name="LAST_COMMIT_MESSAGE" value="a user can no longer add the same categories&#10;updates the view when a category is deleted" />
+    <MESSAGE value="updated filtering of imdb rating&#10;updating the view" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated filtering of imdb rating&#10;updating the view" />
   </component>
 </project>
