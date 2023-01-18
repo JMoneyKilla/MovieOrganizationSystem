@@ -56,9 +56,7 @@ public class MovieModel {
     public void addMovie(String title, String path) {
         try {
             bll.addMovie(title,path);
-        } catch (IOException e) {
-            AlertNotification.showAlertWindow(e.getMessage());
-        } catch (SQLException e) {
+        } catch (IOException | SQLException e) {
             AlertNotification.showAlertWindow(e.getMessage());
             throw new RuntimeException();
         }

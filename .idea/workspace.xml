@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17447822-3efc-44a5-b9f4-d087c30f9a97" name="Changes" comment="a user can no longer add the same categories&#10;updates the view when a category is deleted" />
+    <list default="true" id="17447822-3efc-44a5-b9f4-d087c30f9a97" name="Changes" comment="a user can no longer add the same categories&#10;updates the view when a category is deleted">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/controller/AddMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/AddMovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/model/MovieModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/model/MovieModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/view/AddMovieMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/view/AddMovieMenu.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -143,6 +149,7 @@
       <workItem from="1673971647759" duration="787000" />
       <workItem from="1674033035574" duration="5480000" />
       <workItem from="1674047824522" duration="536000" />
+      <workItem from="1674048616049" duration="1950000" />
     </task>
     <task id="LOCAL-00001" summary="added fxml and on action events in basecontroller">
       <created>1672825929830</created>

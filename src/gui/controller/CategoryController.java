@@ -20,11 +20,11 @@ public class CategoryController{
         String title = txtCategory.getText();
         modelSingleton = CategoryModelSingleton.getInstance();
 
-        if(title!=null && modelSingleton.getCategoryModel().isCategoryDuplicate(title)==true)
+        if(!title.equals("") && title!=null && modelSingleton.getCategoryModel().isCategoryDuplicate(title)==true)
         {
             labelCategory.setText("Category already exist");
         }
-        else if(title!=null && modelSingleton.getCategoryModel().isCategoryDuplicate(title)==false)
+        else if(!title.equals("") && title!=null && modelSingleton.getCategoryModel().isCategoryDuplicate(title)==false)
         {
 
             modelSingleton = CategoryModelSingleton.getInstance();
@@ -36,7 +36,7 @@ public class CategoryController{
             Stage stage = (Stage) n.getScene().getWindow();
             stage.close();
         }
-        else if(title==null)
+        else if(title.equals("") || title==null)
         {
             labelCategory.setText("No input to save");
         }

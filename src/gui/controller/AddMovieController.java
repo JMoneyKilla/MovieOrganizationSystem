@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -13,9 +14,11 @@ import javafx.stage.Window;
 import java.io.File;
 
 public class AddMovieController {
-    public Button btnSave;
+
     private MovieModelSingleton movieModelSingleton;
 
+    @FXML
+    private Label labelAlert;
     @FXML
     private TextField txtTitle;
     @FXML
@@ -56,7 +59,12 @@ public class AddMovieController {
      * @param actionEvent
      */
     public void clickSave(ActionEvent actionEvent) {
-        if (txtTitle !=null && txtFile != null)
+
+        if(txtTitle.getText().equals("") || txtTitle == null || txtFile.getText().equals("") ||txtFile == null){
+            labelAlert.setText("Please enter valid inputs");
+        }
+
+        if ((!txtTitle.getText().isEmpty() || !txtTitle.getText().isBlank()) && (!txtFile.getText().isEmpty() || !txtFile.getText().isBlank()))
         {
             String title = txtTitle.getText();
             String path = txtFile.getText();
@@ -71,6 +79,7 @@ public class AddMovieController {
             Stage stage = (Stage) n.getScene().getWindow();
             stage.close();
         }
+
     }
 
     public void clickCancel(ActionEvent actionEvent) {

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="166.0" prefWidth="412.0" style="-fx-background-color: #217570;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.AddMovieController">
+<AnchorPane prefHeight="166.0" prefWidth="412.0" style="-fx-background-color: #217570;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.AddMovieController">
    <children>
       <TextField fx:id="txtTitle" layoutX="81.0" layoutY="37.0" />
       <TextField fx:id="txtFile" layoutX="81.0" layoutY="72.0" prefHeight="25.0" prefWidth="235.0" />
@@ -14,5 +15,6 @@
       <Text fill="WHITE" layoutX="23.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="File" />
       <Button fx:id="btnSave" layoutX="275.0" layoutY="120.0" mnemonicParsing="false" onAction="#clickSave" style="-fx-background-color: #44B8B1;" text="Save" textFill="WHITE" />
       <Button layoutX="324.0" layoutY="120.0" mnemonicParsing="false" onAction="#clickCancel" style="-fx-background-color: #44B8B1;" text="Cancel" textFill="WHITE" />
+      <Label fx:id="labelAlert" layoutX="87.0" layoutY="124.0" prefHeight="17.0" prefWidth="137.0" textFill="WHITE" />
    </children>
 </AnchorPane>
