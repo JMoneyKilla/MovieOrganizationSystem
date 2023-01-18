@@ -37,22 +37,6 @@ public class CategoryDAO {
         return retrievedCategories;
     }
 
-    /**
-     * retrieves category by given id
-     *
-     * @param id
-     * @return
-     * @throws SQLException
-     */
-    public Category getCategoryByID(int id) throws SQLException {
-        List<Category> categories = getAllCategories();
-        for (Category c : categories
-        ) {
-            if (c.getId() == id)
-                return c;
-        }
-        return null;
-    }
 
     /**
      * Deletes category from table CatMovie based on the id, that has been selected.
