@@ -2,7 +2,6 @@ package bll;
 
 import be.Category;
 import be.Movie;
-import dal.CategoryDAO;
 import dal.MovieDAO;
 import java.sql.SQLException;
 import java.util.HashMap;

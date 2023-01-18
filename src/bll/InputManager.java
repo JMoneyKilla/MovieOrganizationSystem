@@ -2,14 +2,11 @@ package bll;
 
 import be.Category;
 import be.Movie;
-import dal.CategoryDAO;
-import dal.MovieDAO;
 import gui.model.CategoryModelSingleton;
 import gui.model.MovieModelSingleton;
 
 import java.sql.SQLException;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class InputManager {
     CategoryModelSingleton categoryModelSingleton;
