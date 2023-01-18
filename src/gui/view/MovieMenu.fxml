@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="379.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.BaseController">
+  <children>
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="403.0" prefWidth="872.0" style="-fx-background-color: #217570;" VBox.vgrow="ALWAYS">
+      <children>
+            <Button layoutX="458.0" layoutY="316.0" mnemonicParsing="false" onAction="#clickAddMovie" prefHeight="25.0" prefWidth="178.0" style="-fx-background-color: #44B8B1;" text="Add movie..." textFill="WHITE" />
+            <ListView fx:id="lstCategories" layoutX="30.0" layoutY="57.0" prefHeight="253.0" prefWidth="200.0" style="-fx-background-color: #60D5CD;" />
+            <Button layoutX="672.0" layoutY="316.0" mnemonicParsing="false" onAction="#clickDeleteMovie" prefHeight="25.0" prefWidth="162.0" style="-fx-background-color: #44B8B1;" text="Delete movie" textFill="WHITE" />
+            <Button layoutX="30.0" layoutY="316.0" mnemonicParsing="false" onAction="#clickAddCategory" style="-fx-background-color: #44B8B1;" text="Add category..." textFill="WHITE" />
+            <Button layoutX="128.0" layoutY="316.0" mnemonicParsing="false" onAction="#clickDeleteCategory" prefHeight="25.0" prefWidth="101.0" style="-fx-background-color: #44B8B1;" text="Delete category" textFill="WHITE" />
+            <Text fill="WHITE" layoutX="30.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categories" />
+            <Text fill="WHITE" layoutX="239.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Movies" />
+            <TextField fx:id="txtSearch" layoutX="389.0" layoutY="27.0" prefHeight="25.0" prefWidth="200.0" />
+            <TableView fx:id="tableViewMovies" editable="true" layoutX="239.0" layoutY="57.0" prefHeight="253.0" prefWidth="595.0" style="-fx-background-color: #60D5CD;">
+              <columns>
+                <TableColumn fx:id="columnTitle" onEditCommit="#editName" prefWidth="320.66673278808594" text="Title" />
+                  <TableColumn fx:id="columnImdbRating" editable="false" minWidth="0.6666259765625" prefWidth="81.33331298828125" text="Imdb Rating" />
+                  <TableColumn fx:id="columnUserRating" minWidth="2.666717529296875" prefWidth="71.33331298828125" text="User Rating" />
+                  <TableColumn fx:id="columnLastViewed" prefWidth="121.33333333333337" text="Last Viewed" />
+              </columns>
+            </TableView>
+            <Text fill="WHITE" layoutX="371.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating" />
+            <Slider fx:id="sliderRating" layoutX="422.0" layoutY="369.0" prefHeight="14.0" prefWidth="249.0" />
+            <Label fx:id="labelRating" layoutX="427.0" layoutY="349.0" prefHeight="17.0" prefWidth="239.0" textFill="WHITE" />
+            <Button layoutX="686.0" layoutY="363.0" mnemonicParsing="false" onAction="#clickAddRating" style="-fx-background-color: #44B8B1;" text="Add rating" textFill="WHITE" />
+            <Button layoutX="705.0" layoutY="27.0" mnemonicParsing="false" onAction="#btnUpdateImdb" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #44B8B1;" text="Update IMDB rating" textFill="WHITE" />
+            <Button layoutX="31.0" layoutY="363.0" mnemonicParsing="false" onAction="#btnPlayMovie" prefHeight="25.0" prefWidth="192.0" style="-fx-background-color: #44B8B1;" text="Play Movie" textFill="WHITE" />
+            <Button layoutX="239.0" layoutY="316.0" mnemonicParsing="false" onAction="#clickAddToCategory" prefHeight="25.0" prefWidth="178.0" style="-fx-background-color: #44B8B1;" text="Add category to movie..." textFill="WHITE" />
+            <Button layoutX="284.0" layoutY="27.0" mnemonicParsing="false" onAction="#clickShowAllMovies" style="-fx-background-color: #44B8B1;" text="Show all movies" textFill="WHITE" />
+            <ComboBox fx:id="comboBox" layoutX="589.0" layoutY="27.0" prefHeight="25.0" prefWidth="112.0" promptText="Filter..." style="-fx-background-color: #44B8B1;" />
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>

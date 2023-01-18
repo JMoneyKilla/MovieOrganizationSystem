@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45fa53d1-c094-4a63-8814-f813769cc0e7" name="Changes" comment="added fxml and on action events in basecontroller">
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_01_2023_11_06_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_01_2023_11_06__Changes_.xml" afterDir="false" />
+    <list default="true" id="17447822-3efc-44a5-b9f4-d087c30f9a97" name="Changes" comment="a user can no longer add the same categories&#10;updates the view when a category is deleted">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +15,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -26,7 +26,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2Jq0lezbR4rFztrivllZjy2FTm9" />
+  <component name="ProjectId" id="2KAqtcqRSUDcdPU1js2ciGUCLfS" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -38,32 +38,198 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Mappings&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\nhi_t\Documents\GitHub\MovieOrganizationSystem\src\gui\view" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.MovieOrganizationSystem">
+    <configuration name="CategoryController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="gui.controller.CategoryController" />
+      <module name="MovieOrganizationSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="gui.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CategoryDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dal.CategoryDAO" />
+      <module name="MovieOrganizationSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dal.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InputManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bll.InputManager" />
+      <module name="MovieOrganizationSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bll.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Movie" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="be.Movie" />
+      <module name="MovieOrganizationSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="be.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MovieOrganizationSystem" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MovieOrganizationSystem" />
+      <module name="MovieOrganizationSystem" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MovieOrganizationSystem" />
+        <item itemvalue="Application.CategoryController" />
+        <item itemvalue="Application.CategoryDAO" />
+        <item itemvalue="Application.InputManager" />
+        <item itemvalue="Application.Movie" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="278fb7f0-31b4-4555-ae17-e4d37f5d6acf" name="Changes" comment="" />
-      <created>1672790461009</created>
+      <changelist id="17447822-3efc-44a5-b9f4-d087c30f9a97" name="Changes" comment="a user can no longer add the same categories&#10;updates the view when a category is deleted" />
+      <created>1672824399332</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1672790461009</updated>
-      <workItem from="1672790462234" duration="503000" />
-      <workItem from="1672791018610" duration="150000" />
-      <workItem from="1672823567616" duration="1926000" />
+      <updated>1672824399332</updated>
+      <workItem from="1672879062307" duration="33000" />
+      <workItem from="1672879108488" duration="1397000" />
+      <workItem from="1672909880457" duration="306000" />
+      <workItem from="1673096028502" duration="261000" />
+      <workItem from="1673108485432" duration="1638000" />
+      <workItem from="1673255699641" duration="10600000" />
+      <workItem from="1673302757621" duration="20111000" />
+      <workItem from="1673427955983" duration="7265000" />
+      <workItem from="1673600947294" duration="2148000" />
+      <workItem from="1673917021866" duration="3166000" />
+      <workItem from="1673946876583" duration="3331000" />
+      <workItem from="1673971647759" duration="787000" />
+      <workItem from="1674033035574" duration="5480000" />
     </task>
+    <task id="LOCAL-00001" summary="added fxml and on action events in basecontroller">
+      <created>1672825929830</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1672825929830</updated>
+    </task>
+    <task id="LOCAL-00002" summary="pushed fxml file :D">
+      <created>1672826219438</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1672826219438</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added more fxml files and controllers">
+      <created>1672835067980</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1672835067980</updated>
+    </task>
+    <task id="LOCAL-00004" summary="pushed again">
+      <created>1672835105293</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1672835105293</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added methods to controllers&#10;added category to listview">
+      <created>1672921614313</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1672921614313</updated>
+    </task>
+    <task id="LOCAL-00006" summary="delete category">
+      <created>1673437170670</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1673437170672</updated>
+    </task>
+    <task id="LOCAL-00007" summary="delete category">
+      <created>1673438397134</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1673438397135</updated>
+    </task>
+    <task id="LOCAL-00008" summary="comments and cleaning up">
+      <created>1673604495734</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1673604495735</updated>
+    </task>
+    <task id="LOCAL-00009" summary="a user can no longer add the same categories&#10;updates the view when a category is deleted">
+      <created>1673874391545</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1673874391569</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="category stuff" />
+    <MESSAGE value="delete category" />
+    <MESSAGE value="comments and cleaning up" />
+    <MESSAGE value="a user can no longer add multiple categories&#10;updates the view when a category is deleted" />
+    <MESSAGE value="a user can no longer add the same categories&#10;updates the view when a category is deleted" />
+    <option name="LAST_COMMIT_MESSAGE" value="a user can no longer add the same categories&#10;updates the view when a category is deleted" />
   </component>
 </project>
