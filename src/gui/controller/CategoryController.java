@@ -36,6 +36,10 @@ public class CategoryController{
             Stage stage = (Stage) n.getScene().getWindow();
             stage.close();
         }
+        else if(title==null)
+        {
+            labelCategory.setText("No input to save");
+        }
     }
 
 

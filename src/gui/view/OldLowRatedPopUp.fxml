@@ -7,27 +7,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="225.0" prefWidth="524.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="gui.controller.OldLowRatedPopUpController">
-    <Label layoutX="8.0" layoutY="14.0"
-           text="You have rated these movies less than 6.0 and have not seen them in over 2 years!">
+<AnchorPane prefHeight="225.0" prefWidth="524.0" style="-fx-background-color: #217570;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.OldLowRatedPopUpController">
+    <Label layoutX="8.0" layoutY="14.0" text="You have rated these movies less than 6.0 and have not seen them in over 2 years!" textFill="WHITE">
         <font>
-          <Font size="14.0"/>
+          <Font size="14.0" />
         </font>
     </Label>
-    <TableView fx:id="tableViewOldMovies" layoutX="8.0" layoutY="49.0" prefHeight="119.0" prefWidth="508.0">
+    <TableView fx:id="tableViewOldMovies" layoutX="8.0" layoutY="49.0" prefHeight="119.0" prefWidth="508.0" style="-fx-background-color: #60D5CD;">
       <columns>
-          <TableColumn fx:id="columnDOMovieTitle" prefWidth="339.9999694824219" text="Movie Title"/>
-          <TableColumn fx:id="columnDORating" minWidth="0.0" prefWidth="61.3333740234375" text="Rating"/>
-          <TableColumn fx:id="columDOLastViewed" prefWidth="106.00006103515625" text="Last Viewed"/>
+          <TableColumn fx:id="columnDOMovieTitle" prefWidth="339.9999694824219" text="Movie Title" />
+          <TableColumn fx:id="columnDORating" minWidth="0.0" prefWidth="61.3333740234375" text="Rating" />
+          <TableColumn fx:id="columDOLastViewed" prefWidth="106.00006103515625" text="Last Viewed" />
       </columns>
     </TableView>
-    <Label layoutX="14.0" layoutY="185.0" text="Would you like to delete this old trash?">
+    <Label layoutX="14.0" layoutY="185.0" text="Would you like to delete this old trash?" textFill="WHITE">
         <font>
-          <Font size="14.0"/>
+          <Font size="14.0" />
         </font>
     </Label>
-    <Button fx:id="btnDOYes" layoutX="323.0" layoutY="183.0" mnemonicParsing="false" onAction="#clickYes" text="Yes"/>
-    <Button fx:id="btnDONo" layoutX="424.0" layoutY="183.0" mnemonicParsing="false" onAction="#clickNo" text="No"/>
+    <Button fx:id="btnDOYes" layoutX="323.0" layoutY="183.0" mnemonicParsing="false" onAction="#clickYes" style="-fx-background-color: #44B8B1;" text="Yes" textFill="WHITE" />
+    <Button fx:id="btnDONo" layoutX="424.0" layoutY="183.0" mnemonicParsing="false" onAction="#clickNo" style="-fx-background-color: #44B8B1;" text="No" textFill="WHITE" />
 </AnchorPane>

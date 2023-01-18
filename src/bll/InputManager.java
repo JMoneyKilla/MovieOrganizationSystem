@@ -116,8 +116,34 @@ public class InputManager {
             return allMovies;
 
         for (Movie m : allMovies) {
-            if (m.getImdbRating().charAt(0) == query.charAt(0)) {
+            // checks if the imdb rating == 3, then goes through loops
+            if (m.getImdbRating().length()==3) {
+                // checks if query is 1 and then checks the first character of query and imdb rating
+                if(query.length()==1&&query.charAt(0)==m.getImdbRating().charAt(0))
+                {
+                    filtered.add(m);
+                }
+                // checks if query is 3, checks the first  and last character of query and imdb rating and if it contains a decimal
+                else if(query.length()==3 && query.charAt(0)==m.getImdbRating().charAt(0)
+                        && query.charAt(2)==m.getImdbRating().charAt(2)&&query.contains("."))
+                {
+                    filtered.add(m);
+                }
+                // checks if query is 2, checks first character of query and imdb rating and if it contains a decimal
+                else if(query.length()==2&&query.charAt(0)==m.getImdbRating().charAt(0)&&query.contains("."))
+                {
+                    filtered.add(m);
+                }
+            }
+            // checks if imdb rating is 4 and starts with 10
+            if(m.getImdbRating().length()==4 && query.startsWith("10"))
+            {
                 filtered.add(m);
+            }
+            // clears list if query is >=3 and query character at 2 is a decimal
+            else if(query.length()>=3&&query.charAt(2)!='.'|| query.length()>4)
+            {
+                filtered.clear();
             }
         }
         return filtered;

@@ -6,12 +6,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="137.0" prefWidth="305.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CategoryController">
+<AnchorPane prefHeight="153.0" prefWidth="305.0" style="-fx-background-color: #217570;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CategoryController">
    <children>
-      <Text layoutX="29.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Category" />
+      <Text fill="WHITE" layoutX="29.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Category" />
       <TextField fx:id="txtCategory" layoutX="88.0" layoutY="54.0" prefHeight="25.0" prefWidth="168.0" />
-      <Button layoutX="172.0" layoutY="87.0" mnemonicParsing="false" onAction="#clickSave" text="Save" />
-      <Button layoutX="221.0" layoutY="87.0" mnemonicParsing="false" onAction="#clickCancel" text="Cancel" />
-      <Label fx:id="labelCategory" layoutX="35.0" layoutY="21.0" prefHeight="25.0" prefWidth="236.0" />
+      <Button layoutX="172.0" layoutY="99.0" mnemonicParsing="false" onAction="#clickSave" style="-fx-background-color: #44B8B1;" text="Save" textFill="WHITE" />
+      <Button layoutX="219.0" layoutY="99.0" mnemonicParsing="false" onAction="#clickCancel" style="-fx-background-color: #44B8B1;" text="Cancel" textFill="WHITE" />
+      <Label fx:id="labelCategory" layoutX="35.0" layoutY="21.0" prefHeight="25.0" prefWidth="236.0" textFill="WHITE" />
    </children>
 </AnchorPane>

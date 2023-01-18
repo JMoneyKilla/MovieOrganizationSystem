@@ -7,6 +7,13 @@
     <list default="true" id="17447822-3efc-44a5-b9f4-d087c30f9a97" name="Changes" comment="a user can no longer add the same categories&#10;updates the view when a category is deleted">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bll/InputManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/InputManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/BaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/view/AddCategoryToMovieMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/view/AddCategoryToMovieMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/view/AddMovieMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/view/AddMovieMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/view/CategoryMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/view/CategoryMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/view/MovieMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/view/MovieMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/view/OldLowRatedPopUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/view/OldLowRatedPopUp.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -68,7 +68,8 @@ public class BaseController implements Initializable{
         txtSearch.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if(lstCategories.getSelectionModel().getSelectedItem()!=null&&(comboBox.getSelectionModel().getSelectedItem()!=null || comboBox.getSelectionModel().getSelectedItem() == null))
+                if(lstCategories.getSelectionModel().getSelectedItem()!=null&&(comboBox.getSelectionModel().getSelectedItem()!=null
+                        || comboBox.getSelectionModel().getSelectedItem() == null))
                 {
                     labelRating.setText("Show all movies to use filter");
                 }
