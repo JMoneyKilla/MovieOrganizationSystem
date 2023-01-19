@@ -6,6 +6,8 @@ import dal.MovieDAO;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
+
+import gui.controller.AlertNotification;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -51,27 +53,34 @@ public class MovieManager {
      * @throws IOException
      */
     public String getImdbRating(String movieTitle) throws IOException {
+        try {
+            // Search for the movie on IMDb
+            String url = "https://www.imdb.com/find?q=" + movieTitle;
+            url += "&s=all";
+            Document doc = Jsoup.connect(url).get();
 
-        // Search for the movie on IMDb
-        String url = "https://www.imdb.com/find?q=" + movieTitle;
-        url += "&s=all";
-        Document doc = Jsoup.connect(url).get();
+            // Get the first search result
+            Element result = doc.selectFirst(".ipc-metadata-list--base .ipc-metadata-list-summary-item__t");
 
-        // Get the first search result
-        Element result = doc.selectFirst(".ipc-metadata-list--base .ipc-metadata-list-summary-item__t");
+            //Get imdb Id for the movie
 
-        //Get imdb Id for the movie
-        String movieUrl = result.attr("href");
-        String movieId = movieUrl.substring(7, 16);
+            String movieUrl = result.attr("href");
+            String movieId = movieUrl.substring(7, 16);
 
-        // Get the movie page
-        Document document = Jsoup.connect("https://www.imdb.com/title/" + movieId).get();
 
-        // Get rating of movie and turn into String
-        Element ratingResult = document.selectFirst(".eUYAaq");
-        String rating = ratingResult.wholeText();
+            // Get the movie page
+            Document document = Jsoup.connect("https://www.imdb.com/title/" + movieId).get();
 
-        return rating;
+            // Get rating of movie and turn into String
+            Element ratingResult = document.selectFirst(".eUYAaq");
+            String rating = ratingResult.wholeText();
+
+            return rating;
+        }
+        catch (NullPointerException e){
+            AlertNotification.showAlertWindow("Could not find title on IMDB website");
+            throw new RuntimeException();
+        }
     }
 
     /**
@@ -126,5 +135,9 @@ public class MovieManager {
      */
     public void updateRating(Movie selectedMovie) throws SQLException {
         movieDAO.updateUserRating(selectedMovie);
+    }
+
+    public void updateLastViewed(Movie movie) throws SQLException {
+        movieDAO.updateLastViewed(movie);
     }
 }

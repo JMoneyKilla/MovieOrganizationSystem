@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="379.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.BaseController">
+<VBox prefHeight="379.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.BaseController">
   <children>
     <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="403.0" prefWidth="872.0" style="-fx-background-color: #217570;" VBox.vgrow="ALWAYS">
       <children>
@@ -33,7 +33,7 @@
               </columns>
             </TableView>
             <Text fill="WHITE" layoutX="371.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating" />
-            <Slider fx:id="sliderRating" layoutX="422.0" layoutY="369.0" prefHeight="14.0" prefWidth="249.0" />
+            <Slider fx:id="sliderRating" layoutX="422.0" layoutY="369.0" majorTickUnit="10.0" minorTickCount="1" prefHeight="14.0" prefWidth="249.0" />
             <Label fx:id="labelRating" layoutX="427.0" layoutY="349.0" prefHeight="17.0" prefWidth="239.0" textFill="WHITE" />
             <Button layoutX="686.0" layoutY="363.0" mnemonicParsing="false" onAction="#clickAddRating" style="-fx-background-color: #44B8B1;" text="Add rating" textFill="WHITE" />
             <Button layoutX="705.0" layoutY="27.0" mnemonicParsing="false" onAction="#btnUpdateImdb" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #44B8B1;" text="Update IMDB rating" textFill="WHITE" />

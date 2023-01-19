@@ -17,7 +17,7 @@ public class CategoryController{
     private Label labelCategory;
 
     public void clickSave(ActionEvent actionEvent) {
-        String title = txtCategory.getText();
+        String title = txtCategory.getText().trim();
         modelSingleton = CategoryModelSingleton.getInstance();
 
         if(!title.equals("") && title!=null && modelSingleton.getCategoryModel().isCategoryDuplicate(title)==true)

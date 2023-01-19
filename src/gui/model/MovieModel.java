@@ -111,4 +111,12 @@ public class MovieModel {
         movies.addAll(im.searchCategories(text));
     }
 
+    public void updateLastViewed(Movie movie) {
+        try {
+            bll.updateLastViewed(movie);
+        } catch (SQLException e) {
+            AlertNotification.showAlertWindow(e.getMessage());
+            throw new RuntimeException(e);
+        }
+    }
 }

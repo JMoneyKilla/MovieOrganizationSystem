@@ -20,6 +20,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
@@ -127,7 +128,6 @@ public class BaseController implements Initializable{
                 }
             }
         });
-        oldLowRatedPopUpController.deleteOldPopup();
     }
 
 
@@ -141,6 +141,8 @@ public class BaseController implements Initializable{
             Stage addMovieWindow = new Stage();
             addMovieWindow.setScene(new Scene(root));
             addMovieWindow.setTitle("Add Movie");
+            addMovieWindow.initModality(Modality.WINDOW_MODAL);
+            addMovieWindow.centerOnScreen();
             addMovieWindow.initOwner(stage);
             addMovieWindow.show();
 
@@ -174,6 +176,7 @@ public class BaseController implements Initializable{
             Stage addCategoryWindow = new Stage();
             addCategoryWindow.setScene(new Scene(root));
             addCategoryWindow.setTitle("Create new Category");
+            addCategoryWindow.initModality(Modality.WINDOW_MODAL);
             addCategoryWindow.initOwner(stage);
             addCategoryWindow.show();
 
@@ -186,7 +189,10 @@ public class BaseController implements Initializable{
     public void clickDeleteCategory(ActionEvent actionEvent) {
         Category selectedCategory = lstCategories.getSelectionModel().getSelectedItem();
         int category_id;
+        if(selectedCategory==null)
+            labelRating.setText("Select a category to delete");
         if (selectedCategory != null) {
+            labelRating.setText("");
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to remove this category?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
             alert.showAndWait();
 
@@ -194,6 +200,7 @@ public class BaseController implements Initializable{
                 category_id = selectedCategory.getId();
                 categoryModelSingleton.getCategoryModel().removeCategory(category_id);
                 categoryModelSingleton.getCategoryModel().fetchAllCategories();
+                tableViewMovies.setItems(movieModelSingleton.getMovieModel().getMovies());
             }
         }
     }
@@ -205,6 +212,7 @@ public class BaseController implements Initializable{
         {
             selectedMovie.setRating(labelRating.getText());
             movieModelSingleton.getMovieModel().updateRating(selectedMovie);
+            sliderRating.setValue(0.0);
             labelRating.setText("Rating has been added to "+selectedMovie.getName());
         }
         else if(selectedMovie==null)
@@ -215,18 +223,21 @@ public class BaseController implements Initializable{
         {
             labelRating.setText("Please select a rating");
         }
+        movieModelSingleton.getMovieModel().fetchAllMovies();
     }
 
     public void editName(TableColumn.CellEditEvent<Movie, String> movieStringCellEditEvent) {
-        String newTitle = movieStringCellEditEvent.getNewValue();
+        String newTitle = movieStringCellEditEvent.getNewValue().trim();
         Movie movie = tableViewMovies.getSelectionModel().getSelectedItem();
         movieModelSingleton.getMovieModel().updateTitle(newTitle, movie);
+        tableViewMovies.refresh();
     }
 
     public void btnUpdateImdb(ActionEvent actionEvent) {
         if(tableViewMovies.getSelectionModel().getSelectedItem() == null)
             labelRating.setText("Select a movie to update Imdb rating");
         if(tableViewMovies.getSelectionModel().getSelectedItem()!=null){
+            labelRating.setText("");
             movieModelSingleton.getMovieModel().updateIMDB(tableViewMovies.getSelectionModel().getSelectedItem());
         }
     }
@@ -235,6 +246,7 @@ public class BaseController implements Initializable{
         Movie selectedMovie = tableViewMovies.getSelectionModel().getSelectedItem();
         if (selectedMovie!=null)
         {
+            labelRating.setText("");
             AddCategoryToMovieMenuController.selected = tableViewMovies.getSelectionModel().getSelectedItem();
             Node n = (Node) actionEvent.getSource();
             Window stage = n.getScene().getWindow();
@@ -244,6 +256,7 @@ public class BaseController implements Initializable{
                 Stage addCategoryMenu = new Stage();
                 addCategoryMenu.setScene(new Scene(root));
                 addCategoryMenu.setTitle("Add Category To Movie");
+                addCategoryMenu.initModality(Modality.WINDOW_MODAL);
                 addCategoryMenu.initOwner(stage);
                 addCategoryMenu.show();
 
@@ -264,12 +277,18 @@ public class BaseController implements Initializable{
      * @param actionEvent
      */
     public void btnPlayMovie(ActionEvent actionEvent) {
+        if(tableViewMovies.getSelectionModel().getSelectedItem()==null)
+            labelRating.setText("Please select a movie to play");
         if(tableViewMovies.getSelectionModel().getSelectedItem()!=null){
+            labelRating.setText("");
             String path = tableViewMovies.getSelectionModel().getSelectedItem().getAbsolutePath();
+            String lastViewed = String.valueOf(java.time.LocalDate.now());
+            Movie movie = tableViewMovies.getSelectionModel().getSelectedItem();
             try {
-                tableViewMovies.getSelectionModel().getSelectedItem().setLastViewed(String.valueOf(java.time.LocalDate.now()));
+                movie.setLastViewed(lastViewed);
+                movieModelSingleton.getMovieModel().updateLastViewed(movie);
                 Desktop.getDesktop().open(new File(path));
-            } catch (IOException e) {
+            } catch (IllegalArgumentException | IOException e) {
                 AlertNotification.showAlertWindow(e.getMessage());
                 throw new RuntimeException(e);
             }

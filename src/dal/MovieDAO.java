@@ -145,6 +145,18 @@ public class MovieDAO {
             preparedStatement.execute();
         }
     }
+    public void updateLastViewed(Movie movie) throws SQLException {
+        String lastViewed = movie.getLastViewed();
+        int id = movie.getId();
+
+        try(Connection connection = dbConnection.getConnection()){
+            String sql = "UPDATE Movie SET last_viewed = ? WHERE id = ? ;";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, lastViewed);
+            preparedStatement.setInt(2, id);
+            preparedStatement.execute();
+        }
+    }
 
 
     /**

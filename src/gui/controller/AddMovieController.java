@@ -4,7 +4,6 @@ import gui.model.MovieModelSingleton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
@@ -33,7 +32,7 @@ public class AddMovieController {
         FileChooser chooser = new FileChooser();
         chooser.setTitle("Select Movie");
         chooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Video", "*.mp4"));
+                new FileChooser.ExtensionFilter("Movie.mp4", "*.mp4"));
 
         //the default folder you start in the is your default video folder.
         String userprofile = System.getenv("USERPROFILE");
@@ -66,8 +65,8 @@ public class AddMovieController {
 
         if ((!txtTitle.getText().isEmpty() || !txtTitle.getText().isBlank()) && (!txtFile.getText().isEmpty() || !txtFile.getText().isBlank()))
         {
-            String title = txtTitle.getText();
-            String path = txtFile.getText();
+            String title = txtTitle.getText().trim();
+            String path = txtFile.getText().trim();
 
             movieModelSingleton = MovieModelSingleton.getInstance();
             movieModelSingleton.getMovieModel().addMovie(title, path);

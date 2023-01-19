@@ -87,7 +87,7 @@ public class InputManager {
 
         for (Movie m: allMovies
              ) {
-            if(m.getName().toLowerCase().contains(query.toLowerCase())) {
+            if(m.getName().toLowerCase().contains(query.toLowerCase().trim())) {
                 filtered.add(m);
             }
         }
@@ -108,6 +108,7 @@ public class InputManager {
         List<Movie> allMovies = new ArrayList<>(movieModelSingleton.getMovieModel().getMovies());
         movieModelSingleton.getMovieModel().getMovies().clear();
         List<Movie> filtered = new ArrayList<>();
+        query = query.trim();
 
         if(query.equals(""))
             return allMovies;
@@ -120,11 +121,10 @@ public class InputManager {
                 {
                     filtered.add(m);
                 }
-                // checks if query is 3, checks the first  and last character of query and imdb rating and if it contains a decimal
-                else if(query.length()==3 && query.charAt(0)==m.getImdbRating().charAt(0)
-                        && query.charAt(2)==m.getImdbRating().charAt(2)&&query.contains("."))
+                // checks if query is 3 and if query equals imdb rating
+                else if(query.length()==3 && query.equals(m.getImdbRating()))
                 {
-                    filtered.add(m);
+                        filtered.add(m);
                 }
                 // checks if query is 2, checks first character of query and imdb rating and if it contains a decimal
                 else if(query.length()==2&&query.charAt(0)==m.getImdbRating().charAt(0)&&query.contains("."))
@@ -137,8 +137,9 @@ public class InputManager {
             {
                 filtered.add(m);
             }
-            // clears list if query is >=3 and query character at 2 is a decimal
-            else if(query.length()>=3&&query.charAt(2)!='.'|| query.length()>4)
+            // clears list if query is >=4 and query character at 2 is a decimal or if query is >= 3
+            // and doesn't have decimal at char(1).
+            else if(query.length()>=4&&query.charAt(2)!='.'|| query.length()>4 || (query.length()>=3 && query.charAt(1) !='.'))
             {
                 filtered.clear();
             }
@@ -163,6 +164,7 @@ public class InputManager {
         movieModelSingleton = MovieModelSingleton.getInstance();
         List<Movie> preFilter = new ArrayList<>();
         HashMap<Category, Movie> categorizedMovies = movieModelSingleton.getMovieModel().getCategorizedMovies();
+        query = query.trim();
 
         if(query.isEmpty()){
             movieModelSingleton.getMovieModel().fetchAllMovies();
